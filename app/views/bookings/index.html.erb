@@ -1,0 +1,9 @@
+<h1>Bookings for Propery</h1>
+
+<% @bookings.each do |b| %>
+<%= b.name %>
+        <%= link_to "Edit", edit_booking_path_url(b) %>
+        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+
+</br>
+<% end%>

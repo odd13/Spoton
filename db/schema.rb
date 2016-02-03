@@ -14,12 +14,17 @@
 ActiveRecord::Schema.define(version: 20160125045057) do
 
   create_table "bookings", force: :cascade do |t|
+    t.integer  "property_id"
+    t.integer  "user_id"
     t.string   "name"
     t.float    "hours"
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "bookings", ["property_id"], name: "index_bookings_on_property_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160125045057) do
     t.string   "suburb"
     t.string   "postcode"
     t.string   "phone"
+    t.integer  "hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
