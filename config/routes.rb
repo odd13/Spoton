@@ -19,6 +19,12 @@ Rails.application.routes.draw do
         get '/bookings/:id/edit', to: 'bookings#edit', as: :edit_booking_path
         delete '/bookings/:id' => 'bookings#destroy'
 
+        get '/jobs' => 'jobs#index'
+        get '/jobs/:id', to: 'jobs#show', as: :job
+        get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path
+        delete '/jobs/:id' => 'jobs#destroy'
+
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
