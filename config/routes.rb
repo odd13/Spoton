@@ -20,6 +20,8 @@ Rails.application.routes.draw do
         delete '/bookings/:id' => 'bookings#destroy'
 
         get '/jobs' => 'jobs#index'
+	post '/jobs' => 'jobs#create'
+	get '/jobs/new' => 'jobs#new', as: :new_job
         get '/jobs/:id', to: 'jobs#show', as: :job
         get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path
         delete '/jobs/:id' => 'jobs#destroy'
