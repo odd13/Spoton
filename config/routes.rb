@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 	get '/jobs/todays' => 'jobs#todays', as: :todays_jobs
 	post '/jobs' => 'jobs#create'
 	patch '/jobs/:id' => 'jobs#update'
+	patch '/jobs/:id' => 'jobs#startjob'
 	get '/jobs/new' => 'jobs#new', as: :new_job
         get '/jobs/:id', to: 'jobs#show', as: :job
         get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path

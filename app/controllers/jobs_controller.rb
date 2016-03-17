@@ -19,7 +19,21 @@ class JobsController < ApplicationController
       redirect_to :action => 'new'  #render 'jobs/new'
     end
   end
-  
+
+#When the job is started update the start_date
+  def startjob
+    @job = Job.find(params[:id])
+    if @job.update(start_date)
+      redirect_to action: :todays_jobs
+    else
+      render 'jobs/todays'
+    end
+  end
+
+
+  def endjob
+
+  end  
 
 
   def show
