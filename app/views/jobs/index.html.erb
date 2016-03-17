@@ -1,2 +1,12 @@
 <h1>Jobs</h1>
 This is for the jobs
+
+<% @jobs.each do |j| %>
+<%= j.name %>
+        <%= link_to "Edit", edit_job_path_url(j) %>
+        <%= link_to "delete", job_path(j), method: :delete, data: { confirm: "You sure?" } %>
+</br>----------------------
+
+</br>
+<% end%>
+

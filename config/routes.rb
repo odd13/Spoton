@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
         get '/jobs' => 'jobs#index'
 	post '/jobs' => 'jobs#create'
+	put '/jobs/:id' => 'jobs#update'
 	get '/jobs/new' => 'jobs#new', as: :new_job
         get '/jobs/:id', to: 'jobs#show', as: :job
         get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path
