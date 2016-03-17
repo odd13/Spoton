@@ -1,16 +1,18 @@
-<h1>Jobs</h1>
+<h1>Todays Jobs</h1>
 <%= link_to "New Job", new_job_url %>
-<%= link_to "List Todays Jobs", todays_jobs_url %>
 </br>
 </br>
 
 
 <% @jobs.each do |j| %>
-<%= j.name %>
+<%= j.name %> - <%= j.start_date %>
         <%= link_to "Edit", edit_job_path_url(j) %>
         <%= link_to "delete", job_path(j), method: :delete, data: { confirm: "You sure?" } %>
 </br>----------------------
-
 </br>
 <% end%>
+
+<p>
+Email Items
+</p>
 

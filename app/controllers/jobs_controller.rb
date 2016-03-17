@@ -7,15 +7,21 @@ class JobsController < ApplicationController
     @job = Job.new
   end
 
+  def todays
+    @jobs = Job.where("start_date >= ?", Date.today) 
+  end
+
   def create
     @job = Job.new(job_params)
     if @job.save
-      render 'index' # Handle a successful save.
+      redirect_to :action => 'index' #render 'jobs/index' # Handle a successful save.
     else
-      render 'new'
+      redirect_to :action => 'new'  #render 'jobs/new'
     end
   end
   
+
+
   def show
     @job = Job.find(params[:id])
   end
@@ -33,8 +39,8 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    if @job.update(post_params)
-      redirect_to action: :jobs
+    if @job.update(job_params)
+      redirect_to action: :index
     else
       render 'jobs/edit'
     end
@@ -43,6 +49,6 @@ class JobsController < ApplicationController
   private
 
     def job_params
-      params.require(:job).permit(:name, :start_date, :end_date)
+      params.require(:job).permit(:name, :start_date, :end_date, :descrition)
     end
 end
