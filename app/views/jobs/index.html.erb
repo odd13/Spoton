@@ -6,7 +6,9 @@
 
 
 <% @jobs.each do |j| %>
-<%= j.name %>
+<%= j.name %> 
+</br>
+<%= j.created_at %>
         <%= link_to "Edit", edit_job_path_url(j) %>
         <%= link_to "delete", job_path(j), method: :delete, data: { confirm: "You sure?" } %>
 </br>----------------------

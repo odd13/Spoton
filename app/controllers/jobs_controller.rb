@@ -8,7 +8,7 @@ class JobsController < ApplicationController
   end
 
   def todays
-    @jobs = Job.where("start_date >= ?", Date.today) 
+    @jobs = Job.where("created_at >= ?", Time.zone.now.beginning_of_day) 
   end
 
   def create
@@ -49,6 +49,6 @@ class JobsController < ApplicationController
   private
 
     def job_params
-      params.require(:job).permit(:name, :start_date, :end_date, :descrition)
+      params.require(:job).permit(:name, :start_date, :end_date, :description)
     end
 end
