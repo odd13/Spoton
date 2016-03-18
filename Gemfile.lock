@@ -87,6 +87,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.5)
       sprockets-rails
+    rails-bootstrap (3.0.0.4)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -146,6 +147,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.5)
+  rails-bootstrap
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
