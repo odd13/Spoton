@@ -5,29 +5,29 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   	root 'welcome#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 	get '/propertys' => 'propertys#index'
-        get '/propertys/:id', to: 'propertys#show', as: :property
-        get '/propertys/:id/edit', to: 'propertys#edit', as: :edit_property_path
+  get '/propertys/:id', to: 'propertys#show', as: :property
+  get '/propertys/:id/edit', to: 'propertys#edit', as: :edit_property_path
 	delete '/propertys/:id' => 'propertys#destroy'
 
 	get '/bookings' => 'bookings#index'
-        get '/bookings/:id', to: 'bookings#show', as: :booking
-        get '/bookings/:id/edit', to: 'bookings#edit', as: :edit_booking_path
-        delete '/bookings/:id' => 'bookings#destroy'
+  get '/bookings/:id', to: 'bookings#show', as: :booking
+  get '/bookings/:id/edit', to: 'bookings#edit', as: :edit_booking_path
+  delete '/bookings/:id' => 'bookings#destroy'
 
-        get '/jobs' => 'jobs#index'
-	get '/jobs/todays' => 'jobs#todays', as: :todays_jobs
+  get '/jobs' => 'jobs#index'
+
 	post '/jobs' => 'jobs#create'
 	patch '/jobs/:id' => 'jobs#update'
 	patch '/jobs/:id' => 'jobs#startdate', as: :startdate_job
 	get '/jobs/new' => 'jobs#new', as: :new_job
-        get '/jobs/:id', to: 'jobs#show', as: :job
-        get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path
-        delete '/jobs/:id' => 'jobs#destroy'
+  get '/jobs/:id', to: 'jobs#show', as: :job
+  get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path
+  delete '/jobs/:id' => 'jobs#destroy'
 
 
 

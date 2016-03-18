@@ -1,7 +1,8 @@
 <h1>Welcome#index</h1>
-<a href='propertys'>Propertys</a>
-<p>Find me in app/views/welcome/index.html.erb</p>
 
-<% 11.times do |i|%>
-	<%= i %>
-<% end %>
+<p>
+  read routes.rb to figure out which is the home route.
+</p>
+
+<%# run 'bin/rake routes' to view all routes and then add _path to the end #%> 
+<%= link_to "Properties", propertys_path %>
