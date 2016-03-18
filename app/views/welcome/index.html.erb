@@ -1,8 +1,17 @@
 <h1>Welcome#index</h1>
 
+<%# pending design review %>
+<% if user_signed_in? %>
+  signed in as <%= current_user.name %>
+<% else %>
+  please <%= link_to "sign in", new_user_session_path %>
+<% end %>
+
+<%# page content %>
 <p>
   read routes.rb to figure out which is the home route.
 </p>
 
 <%# run 'bin/rake routes' to view all routes and then add _path to the end #%> 
 <%= link_to "Properties", propertys_path %>
+<%= link_to "Bookings", bookings_path %>
