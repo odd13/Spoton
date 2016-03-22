@@ -25,8 +25,8 @@ class JobsController < ApplicationController
 #When the job is started update the start_date
   def startjob
     @job = Job.find(params[:id])
-    if @job.update(start_date)
-      redirect_to action: :todays_jobs
+    if @job.update_attribute(:start_date, Time.zone.now.beginning_of_day)
+      redirect_to action: :todays_jobs_url
     else
       render 'jobs/todays'
     end
@@ -56,6 +56,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
+      @job.save
       redirect_to action: :index
     else
       render 'jobs/edit'

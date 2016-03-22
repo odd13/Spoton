@@ -7,7 +7,7 @@
 <% @jobs.each do |j| %>
 <%= j.name %> - <%= j.start_date %>
 	</br>
-        <%= link_to "Start Job", startdate_job_url(j), method: :patch %> ------------------ <%= link_to "End Job", method: :endjob %>
+        <%= link_to "Start Job", startjob_job_path(j) %> ------------------ <%= link_to "End Job", method: :endjob %>
 link_to "Label", :controller => :my_controller, :action => :index
 	</br>
         <%= link_to "delete", job_path(j), method: :delete, data: { confirm: "You sure?" } %>
