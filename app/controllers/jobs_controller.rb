@@ -13,6 +13,12 @@ class JobsController < ApplicationController
     @jobs = Job.where("created_at >= ?", Time.zone.now.beginning_of_day) 
   end
 
+  #ToDo: Need to add a field for indication of being emailed. Just for testing
+  def emailview
+    @jobs = Job.where("start_date >= ?", Time.zone.now.beginning_of_day)
+  end
+
+
   def create
     @job = Job.new(job_params)
     if @job.save
@@ -25,7 +31,7 @@ class JobsController < ApplicationController
 #When the job is started update the start_date
   def startjob
     @job = Job.find(params[:id])
-    if @job.update_attribute(:start_date, DateTime.now)
+    if @job.update_attribute(:start_date, DateTime.now) && @job.update_attribute(:start_user_id, current_user.id)
       redirect_to :back
     else
       render 'jobs/todays'

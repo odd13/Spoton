@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   get '/jobs' => 'jobs#index'
   get '/jobs/todays' => 'jobs#todays', as: :todays_jobs
+  get '/jobs/emailview' => 'jobs#emailview', as: :email_view_jobs
   post '/jobs' => 'jobs#create'
   patch '/jobs/:id' => 'jobs#update'
   match '/jobs/:id/startjob' => 'jobs#startjob', :via => [:get], as: :startjob_job

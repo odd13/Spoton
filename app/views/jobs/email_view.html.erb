@@ -1,0 +1,23 @@
+<h1>Email View</h1>
+
+
+<% @jobs.each do |j| %>
+<strong><%= j.name %> </strong>
+        </br>
+        <% if j.start_date == nil %>
+          <%= link_to "Start Job", startjob_job_path(j) %>
+        <% else %>
+          <%= j.start_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+        <% end %>
+ ------------------
+        <% if j.end_date == nil %>
+          <%= link_to "End Job", endjob_job_path(j) %>
+        <% else %>
+          <%= j.end_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+        <% end %>
+
+        </br>
+        <%= link_to "delete", job_path(j), method: :delete, data: { confirm: "You sure?" } %>
+</br>
+</br>
+<% end %>

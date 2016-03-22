@@ -3,7 +3,8 @@
 <%= link_to "List Todays Jobs", todays_jobs_url %>
 </br>
 </br>
-
+<%= current_user.id %>
+</br>
 
 <% @jobs.each do |j| %>
 <%= j.name %> 
