@@ -7,11 +7,19 @@
 <% @jobs.each do |j| %>
 <%= j.name %> - <%= j.start_date %>
 	</br>
-        <%= link_to "Start Job", startjob_job_path(j) %> ------------------ <%= link_to "End Job", method: :endjob %>
-link_to "Label", :controller => :my_controller, :action => :index
+	<% if j.start_date == nil %>
+	  <%= link_to "Start Job", startjob_job_path(j) %>
+	<% end %>
+
+
+------------------ 
+
+
+<%= link_to "End Job", method: :endjob %>
+
 	</br>
         <%= link_to "delete", job_path(j), method: :delete, data: { confirm: "You sure?" } %>
-</br>----------------------
+</br>
 </br>
 <% end%>
 
@@ -21,4 +29,6 @@ link_to "Label", :controller => :my_controller, :action => :index
 <p>
 Email Items
 </p>
+
+http://stackoverflow.com/questions/13182661/rails-3-how-do-i-use-link-to-to-change-the-value-of-a-boolean-in-the-db
 
