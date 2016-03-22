@@ -26,7 +26,7 @@ class JobsController < ApplicationController
   def startjob
     @job = Job.find(params[:id])
     if @job.update_attribute(:start_date, DateTime.now)
-      redirect_to action: :back
+      redirect_to :back
     else
       render 'jobs/todays'
     end
@@ -34,6 +34,12 @@ class JobsController < ApplicationController
 
 
   def endjob
+    @job = Job.find(params[:id])
+    if @job.update_attribute(:end_date, DateTime.now)
+      redirect_to :back
+    else
+      render 'jobs/todays'
+    end
 
   end  
 
