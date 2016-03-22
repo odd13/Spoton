@@ -9,6 +9,7 @@
 
 # users
 User.create! :name => 'Garry Danger', :email => 'garrydanger@gmail.com', :password => 'bobafett', :password_confirmation => 'bobafett'
+User.create! :name => 'Oddie', :email => 'arcadeoddie@gmail.com', :password => 'bobafett', :password_confirmation => 'bobafett'
 
 p1 = Property.create(name: 'propqweqweqwe1', numberunit: '12', street: 'blahbl blayh rd',suburb: 'emu' ,postcode: '2000',phone: '(45) 25254231',)
 p2 = Property.create(name: 'propq2', numberunit: '1232', street: 'blahyh rd',suburb: 'eqwemu' ,postcode: '2000',phone: '(45) 2qweqwe5254231',)
