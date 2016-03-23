@@ -8,14 +8,17 @@
 <strong><%= j.name %> </strong>
 	</br>
 	<% if j.start_date == nil %>
-	  <%= link_to "Start Job", startjob_job_path(j) %>
-	  <%= button_to "Start", startjob_job_path(j), :class => 'btn', :method => :get %>
+	  <%= #link_to "Start Job", startjob_job_path(j) 
+		%>
+	  <%= button_to "Start", startjob_job_path(j), :class => 'myButton', :method => :get %>
 	<% else %>
 	  <%= j.start_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
 	<% end %>
  ------------------ 
 	<% if j.end_date == nil %>
-	  <%= link_to "End Job", endjob_job_path(j) %>
+	  <%= #link_to "End Job", endjob_job_path(j) 
+		%>
+	  <%= button_to "End", endjob_job_path(j), :class => 'myButton', :method => :get %>
 	<% else %>
 	  <%= j.end_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
 	<% end %>
