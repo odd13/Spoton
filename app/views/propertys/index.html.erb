@@ -1,5 +1,6 @@
  <h2>Property list</h2>
-	
+<%= link_to "New Property", new_property_url %>
+
     <% @propertys.each do |property| %>
       <h3><%= property.name %></h3>
       <p><%= property.numberunit %>, <%= property.street%></br>

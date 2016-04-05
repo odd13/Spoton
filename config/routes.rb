@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/propertys' => 'propertys#index'
   get '/propertys/:id', to: 'propertys#show', as: :property
   get '/propertys/:id/edit', to: 'propertys#edit', as: :edit_property_path
+  get 'propertys/new' => 'propertys#new', as: :new_property
   delete '/propertys/:id' => 'propertys#destroy'
 
   get '/bookings' => 'bookings#index'
