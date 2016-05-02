@@ -1,15 +1,15 @@
-<%= form_for :type do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+<%= form_for(@type) do |i| %>
+        <p>
+         <%= i.label :name %><br>
+         <%= i.text_field :name %>
+        </p>
+
+        <p>
+          <%= i.label :category %><br>
+          <%= i.text_field :category %>
+        </p>
+
+
+    <%= i.submit %>
 <% end %>
+

@@ -1,0 +1,17 @@
+<h1>Types</h1>
+<%= link_to "New type", new_type_url %>
+</br>
+</br>
+</br>
+
+<% @types.each do |t| %>
+<%= t.name %> - <%= t.category %>
+
+</br>
+<%= t.created_at.strftime("%d-%m-%Y") %>
+        <%= link_to "Edit", edit_type_path(t) %>
+        <%= link_to "delete", type_path(t), method: :delete, data: { confirm: "You sure?" } %>
+</br>----------------------
+
+</br>
+<% end%>
