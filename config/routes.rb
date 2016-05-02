@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :types, :customers, :locations, :bookings
+
   get 'welcome/index'
  
   # The priority is based upon order of creation: first created -> highest priority.
@@ -10,16 +13,16 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  get '/propertys' => 'propertys#index'
-  get '/propertys/:id', to: 'propertys#show', as: :property
-  get '/propertys/:id/edit', to: 'propertys#edit', as: :edit_property_path
-  get 'propertys/new' => 'propertys#new', as: :new_property
-  delete '/propertys/:id' => 'propertys#destroy'
+#  get '/propertys' => 'propertys#index'
+#  get '/propertys/:id', to: 'propertys#show', as: :property
+#  get '/propertys/:id/edit', to: 'propertys#edit', as: :edit_property_path
+#  get 'propertys/new' => 'propertys#new', as: :new_property
+#  delete '/propertys/:id' => 'propertys#destroy'
 
-  get '/bookings' => 'bookings#index'
-  get '/bookings/:id', to: 'bookings#show', as: :booking
-  get '/bookings/:id/edit', to: 'bookings#edit', as: :edit_booking_path
-  delete '/bookings/:id' => 'bookings#destroy'
+#  get '/bookings' => 'bookings#index'
+#  get '/bookings/:id', to: 'bookings#show', as: :booking
+#  get '/bookings/:id/edit', to: 'bookings#edit', as: :edit_booking_path
+#  delete '/bookings/:id' => 'bookings#destroy'
 
   get '/jobs' => 'jobs#index'
   get '/jobs/todays' => 'jobs#todays', as: :todays_jobs
