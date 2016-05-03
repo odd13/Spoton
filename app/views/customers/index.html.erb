@@ -1,0 +1,17 @@
+<h1>Types</h1>
+<%= link_to "New Customer", new_customer_url %>
+</br>
+</br>
+</br>
+
+<% @customers.each do |t| %>
+<%= t.name %> - <%= t.address %>
+
+</br>
+<%= t.created_at.strftime("%d-%m-%Y") %>
+        <%= link_to "Edit", edit_customer_path(t) %>
+        <%= link_to "delete", customer_path(t), method: :delete, data: { confirm: "You sure?" } %>
+</br>----------------------
+
+</br>
+<% end%>
