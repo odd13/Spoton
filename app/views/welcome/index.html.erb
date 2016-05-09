@@ -6,6 +6,10 @@
 <% else %>
   please <%= link_to "sign in", new_user_session_path %>
 <% end %>
+<%= link_to "Customers", customers_path %> -
+<%= link_to "Locations", locations_path %> -
+<%= link_to "Types", types_path %>
+
 
 <%# page content %>
 <p>
@@ -13,5 +17,3 @@
 </p>
 
 <%# run 'bin/rake routes' to view all routes and then add _path to the end #%> 
-<%= link_to "Properties", propertys_path %>
-<%= link_to "Bookings", bookings_path %>

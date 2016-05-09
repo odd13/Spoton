@@ -1,0 +1,14 @@
+<%= form_for(@location) do |i| %>
+        <p>
+         <%= i.label :name %><br>
+         <%= i.text_field :name %>
+        </p>
+
+        <p>
+          <%= i.label :address %><br>
+          <%= i.text_field :address %>
+        </p>
+
+    <%= i.submit %>
+<% end %>
+

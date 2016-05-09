@@ -1,0 +1,17 @@
+<h1>Locations</h1>
+<%= link_to "New Location", new_location_url %>
+</br>
+</br>
+</br>
+
+<% @locations.each do |t| %>
+<%= t.name %> - <%= t.address %>
+
+</br>
+<%= t.created_at.strftime("%d-%m-%Y") %>
+        <%= link_to "Edit", edit_location_path(t) %>
+        <%= link_to "delete", location_path(t), method: :delete, data: { confirm: "You sure?" } %>
+</br>----------------------
+
+</br>
+<% end%>
