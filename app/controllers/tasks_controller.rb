@@ -1,16 +1,16 @@
-class TypesController < ApplicationController
+class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tasks = Type.all
+    @tasks = Task.all
   end
 
   def new
-    @task = Type.new
+    @task = Task.new
   end
 
   def create
-    @task = Type.new(task_params)
+    @task = Task.new(task_params)
     if @task.save
       redirect_to :action => 'index' #render 'tasks/index' # Handle a successful save.
     else
@@ -19,22 +19,22 @@ class TypesController < ApplicationController
   end
 
   def show
-    @task = Type.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def destroy
-    @task = Type.find(params[:id])
+    @task = Task.find(params[:id])
     @task.destroy
-    flash[:success] = "Type deleted"
+    flash[:success] = "Task deleted"
     redirect_to '/tasks'
   end
 
   def edit
-    @task = Type.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Type.find(params[:id])
+    @task = Task.find(params[:id])
     if @task.update(task_params)
       @task.save
       redirect_to action: :index
@@ -46,7 +46,7 @@ class TypesController < ApplicationController
   private
 
     def task_params
-      params.require(:task).permit(:name, :category)
+      params.require(:task).permit(:name, :description)
     end
 
 end

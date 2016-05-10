@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :types, :customers, :locations, :bookings
+  resources :tasks, :customers, :locations, :bookings
 
   get 'welcome/index'
  

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509101555) do
+ActiveRecord::Schema.define(version: 20160510100352) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "property_id"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20160509101555) do
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "start_user_id"
-    t.integer  "end_user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "start_user"
+    t.integer  "end_user"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -70,17 +70,24 @@ ActiveRecord::Schema.define(version: 20160509101555) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "types", force: :cascade do |t|
     t.string   "name"
-    t.string   "category"
-    t.boolean  "is_active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
+    t.boolean  "is_admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
