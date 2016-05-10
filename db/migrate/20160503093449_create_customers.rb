@@ -11,7 +11,6 @@ class CreateCustomers < ActiveRecord::Migration
 	t.string :email
 	t.string :phone
       t.boolean :is_active
-
 	
       t.timestamps null: false
     end

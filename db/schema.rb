@@ -54,9 +54,12 @@ ActiveRecord::Schema.define(version: 20160510100352) do
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "customer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "locations", ["customer_id"], name: "index_locations_on_customer_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -71,13 +74,6 @@ ActiveRecord::Schema.define(version: 20160510100352) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "types", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false

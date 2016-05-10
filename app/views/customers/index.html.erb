@@ -11,6 +11,9 @@
 
 <% @customers.each do |t| %>
 <%= t.name %> - <%= t.address %>
+	<% t.location.each do |l| %>
+		<%= l.name%> ****
+	<% end %>
 
 </br>
 <%= t.created_at.strftime("%d-%m-%Y") %>
