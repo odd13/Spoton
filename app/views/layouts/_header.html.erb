@@ -1,0 +1,14 @@
+<header>
+<ul class="top">
+  <li class="top"><%= link_to "Customers", customers_path %> </li>
+  <li class="top"><%= link_to "Locations", locations_path %></li>
+  <li class="top"><%= link_to "Tasks", tasks_path %></li>
+
+  <li class="top" style="float:right"><a href="#"><%= current_user.name %></a></li>
+  <li class="top" style="float:right"><%= link_to "Todays Jobs", jobs_path %></a></li>
+
+  <li class="top" style="float:right;"><b><%= link_to "+", request.fullpath  %></b></li>
+
+
+</ul>
+</header>
