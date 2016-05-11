@@ -1,19 +1,9 @@
-<%= link_to "Customers", customers_path %> - 
-<%= link_to "Locations", locations_path %> -
-<%= link_to "Tasks", tasks_path %> - 
-<%= link_to "Home", welcome_index_path %>
-
 <h1>Customers</h1>
-<%= link_to "New Customer", new_customer_url %>
-</br>
 </br>
 </br>
 
 <% @customers.each do |t| %>
 <%= t.name %> - <%= t.address %>
-	<% t.location.each do |l| %>
-		<%= l.name%> ****
-	<% end %>
 
 </br>
 <%= t.created_at.strftime("%d-%m-%Y") %>
