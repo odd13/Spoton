@@ -1,1 +1,13 @@
-<h1>Show Types</h1>
+<h1>Show Customer</h1>
+<h2>Locations</h2>
+<% @locations.each do |t| %>
+<%= t.name %> - <%= t.address %>
+
+</br>
+<%= t.created_at.strftime("%d-%m-%Y") %>
+        <%= link_to "Edit", edit_location_path(t) %>
+</br>----------------------
+
+</br>
+<% end%>
+
