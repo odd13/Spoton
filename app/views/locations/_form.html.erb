@@ -10,8 +10,7 @@
         </p>
 	
         <p>
-          <%= i.label :customer %><br>
-          <%= i.text_field :customer %>
+          <%= i.collection_select :customer_id, Customer.order(:name),:id,:name, include_blank: true %><br>
         </p>
 
     <%= i.submit %>
