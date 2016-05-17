@@ -10,9 +10,8 @@
         </p>
 	
         <p>
-          <%= i.collection_select :customer_id, Customer.order(:name),:id,:name, include_blank: true %><br>
+          <%= i.collection_select(:customer_id, Customer.order(:name),:id,:name,include_blank: true, :selected => @location.customer_id) %><br>
         </p>
 
     <%= i.submit %>
 <% end %>
-
