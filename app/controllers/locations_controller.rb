@@ -2,6 +2,7 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    #@locations = Location.where("customer_id = ?", params[current_user.customer_id])
     @locations = Location.all
   end
 

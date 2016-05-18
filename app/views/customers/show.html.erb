@@ -1,4 +1,8 @@
-<h1>Show Customer</h1>
+<h1><%= @customer.name %></h1>
+Address: <%= @customer.address %> </br>
+Phone: <%= @customer.phone %> </br>
+<%= link_to "Edit", edit_customer_path(@customer) %>
+
 <h2>Locations</h2>
 <% @locations.each do |t| %>
 <%= t.name %> - <%= t.address %>
@@ -10,4 +14,3 @@
 
 </br>
 <% end%>
-
