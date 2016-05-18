@@ -6,7 +6,6 @@
 <%= t.name %> - <%= t.description %>
 
 </br>
-<%= t.created_at.strftime("%d-%m-%Y") %>
         <%= link_to "Edit", edit_task_path(t) %>
         <%= link_to "delete", task_path(t), method: :delete, data: { confirm: "You sure?" } %>
 </br>----------------------

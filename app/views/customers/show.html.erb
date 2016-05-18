@@ -3,12 +3,11 @@ Address: <%= @customer.address %> </br>
 Phone: <%= @customer.phone %> </br>
 <%= link_to "Edit", edit_customer_path(@customer) %>
 
-<h2>Locations</h2>
+<h3>Locations</h3>
 <% @locations.each do |t| %>
 <%= t.name %> - <%= t.address %>
 
 </br>
-<%= t.created_at.strftime("%d-%m-%Y") %>
         <%= link_to "Edit", edit_location_path(t) %>
 </br>----------------------
 
