@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160510100352) do
     t.integer  "task_id"
     t.string   "name"
     t.float    "hours"
+    t.datetime "booked_time"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.datetime "created_at",     null: false

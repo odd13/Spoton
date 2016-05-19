@@ -4,14 +4,17 @@
 	Task: <%= i.collection_select(:task_id, Task.order(:name),:id,:name,include_blank: false, :selected => @booking.task_id) %><br>
         </p>
 
------ Todays Free Times ------- </br>
-	8AM - 10AM </br>
-	10AM - 12PM </br>
-	1PM - 3PM </br>
-	3PM - 5PM</br>
-
-</br>
-
-
+  ----- Todays Free Times -------
+</br><%= select_date Date.today, prefix: :booked_date %></br>
+  <select name="booking_time">
+           <option value="8:00:00">8AM - 10AM</option>
+           <option value="10:00:00">10AM - 12PM</option>
+           <option value="13:00:00" disabled>1PM - 3PM</option>
+           <option value="15:00:00">3PM - 5PM</option>
+  </select>
+   </br>
+   </br>
+   </br>
+   </br>
     <%= i.submit %>
 <% end %>
