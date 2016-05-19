@@ -3,6 +3,7 @@
   <li class="<%= 'top active' if params[:controller] == 'customers' %><%= 'top' if params[:controller] != 'customers' %>"><%= link_to "Customers", customers_path %> </li>
   <li class="<%= 'top active' if params[:controller] == 'locations' %><%= 'top' if params[:controller] != 'locations' %>"><%= link_to "Locations", locations_path %></li>
   <li class="<%= 'top active' if params[:controller] == 'tasks' %><%= 'top' if params[:controller] != 'tasks' %>"><%= link_to "Tasks", tasks_path %></li>
+  <li class="<%= 'top active' if params[:controller] == 'bookings' %><%= 'top' if params[:controller] != 'bookings' %>"><%= link_to "Bookings", bookings_path %></li>
 
   <li class="top" style="float:right"><a href="#">
   	<% if user_signed_in? %>
