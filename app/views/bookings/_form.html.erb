@@ -1,0 +1,17 @@
+<%= form_for(@booking) do |i| %>
+        <p>
+	Location: <%= i.collection_select(:location_id, Location.order(:name),:id,:name,include_blank: false, :selected => @booking.location_id) %><br>
+	Task: <%= i.collection_select(:task_id, Task.order(:name),:id,:name,include_blank: false, :selected => @booking.task_id) %><br>
+        </p>
+
+----- Todays Free Times ------- </br>
+	8AM - 10AM </br>
+	10AM - 12PM </br>
+	1PM - 3PM </br>
+	3PM - 5PM</br>
+
+</br>
+
+
+    <%= i.submit %>
+<% end %>

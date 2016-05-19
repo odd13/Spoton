@@ -14,16 +14,19 @@
 ActiveRecord::Schema.define(version: 20160510100352) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "property_id"
+    t.integer  "location_id"
     t.integer  "user_id"
+    t.integer  "task_id"
     t.string   "name"
     t.float    "hours"
-    t.datetime "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  add_index "bookings", ["property_id"], name: "index_bookings_on_property_id"
+  add_index "bookings", ["location_id"], name: "index_bookings_on_location_id"
+  add_index "bookings", ["task_id"], name: "index_bookings_on_task_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "customers", force: :cascade do |t|
@@ -84,6 +87,8 @@ ActiveRecord::Schema.define(version: 20160510100352) do
     t.string   "name"
     t.string   "phone"
     t.boolean  "is_admin"
+    t.boolean  "is_staff"
+    t.integer  "booking_id"
     t.integer  "customer_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -99,6 +104,7 @@ ActiveRecord::Schema.define(version: 20160510100352) do
     t.string   "last_sign_in_ip"
   end
 
+  add_index "users", ["booking_id"], name: "index_users_on_booking_id"
   add_index "users", ["customer_id"], name: "index_users_on_customer_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
