@@ -31,7 +31,7 @@ class JobsController < ApplicationController
 #When the job is started update the start_date
   def startjob
     @job = Job.find(params[:id])
-    if @job.update_attribute(:start_date, DateTime.now) && @job.update_attribute(:start_user_id, current_user.id)
+    if @job.update_attribute(:start_date, DateTime.now) ## ------&& @job.update_attribute(:start_user_id, current_user.id)
       redirect_to :back
     else
       render 'jobs/todays'

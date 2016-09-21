@@ -3,7 +3,7 @@
 </br>
 
 <% @locations.each do |t| %>
-<%= t.name %> - <%= t.address %>
+<%= t.name %> - <%= link_to t.address, "http://maps.google.com/?q=#{t.address}",:target => "_blank" %>
 
 </br>
 <%= t.created_at.strftime("%d-%m-%Y") %>
