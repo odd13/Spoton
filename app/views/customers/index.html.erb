@@ -1,12 +1,12 @@
 <h1>Customers</h1>
 </br>
 <% @customers.each do |t| %>
------------------------------------------- </br>
+------------------------------------------
 <h3><%= t.name %></h3>
 <%= t.address %>
 </br>
-  - <%= link_to "Learn more", customer_path(t) %> -
+  <%= link_to "Locations", customer_path(t) %> -
   <%= link_to "Edit", edit_customer_path(t) %> -
-  <%= link_to "delete", customer_path(t), method: :delete, data: { confirm: "You sure?" } %> -
+  <%= link_to "delete", customer_path(t), method: :delete, data: { confirm: "You sure?" } %>
 </br>
 <% end%>
