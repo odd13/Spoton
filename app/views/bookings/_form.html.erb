@@ -5,7 +5,9 @@
         </p>
 
   ----- Todays Free Times -------
-</br><%= select_date Date.today, prefix: :booked_date %></br>
+</br><%= select_date @booking.start_datetime, prefix: :start_datetime %></br>
+wwww <%= @booking.booked_time %> wwww
+wwww <%= @booking.start_datetime %> wwww
   <select name="booking_time">
            <option value="8:00:00">8AM - 10AM</option>
            <option value="10:00:00">10AM - 12PM</option>

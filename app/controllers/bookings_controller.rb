@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booked_time = DateTime.new(2012, 8, 29, 23, 59, 59)
+    #@booked_time = DateTime.new(2012, 8, 29, 23, 59, 59)
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to :action => 'index' #render 'bookings/index' # Handle a succe$
@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
   private
 
     def booking_params
-      params.require(:booking).permit(:name, :hours, :booked_time, :task_id, :location_id)
+      params.require(:booking).permit(:name, :hours, :booked_time, :task_id, :location_id, :start_datetime)
     end
 
 
