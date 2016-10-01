@@ -11,11 +11,12 @@ class BookingsController < ApplicationController
   # this is a great comment
   def create
     #@booked_time = DateTime.new(2012, 8, 29, 23, 59, 59)
+
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to :action => 'index' #render 'bookings/index' # Handle a succe$
+      redirect_to :action => 'index'
     else
-      redirect_to :action => 'new'  #render 'bookings/new'
+      redirect_to :action => 'new'
     end
   end
 
