@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  # this is a great comment
   def create
     #@booked_time = DateTime.new(2012, 8, 29, 23, 59, 59)
     @booking = Booking.new(booking_params)
