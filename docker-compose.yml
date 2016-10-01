@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  spoton:
+    build: .
+    command: bin/rails s -b 0.0.0.0 -p 3000
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
