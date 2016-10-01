@@ -3,5 +3,11 @@
   = f.input :task, include_blank: false
   = f.input :booked_time, as: :string
 
+  = f.actions do
+    = f.action :submit, as: :button
+    = f.action :cancel, as: :link
+
 :javascript
-  $('#booking_booked_time').datetimepicker()
+  $('#booking_booked_time').datetimepicker({
+    format: 'YYYY/MM/DD HH:mm'
+  })
