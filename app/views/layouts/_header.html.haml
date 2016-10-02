@@ -1,0 +1,13 @@
+.row
+  .col-md-12
+    .navbar.navbar-default
+      .container-fluid
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Customers', customers_path
+            %li= link_to 'Locations', locations_path
+            %li= link_to 'Tasks', tasks_path
+            %li= link_to 'Bookings', bookings_path
+
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to 'NB', new_booking_path
