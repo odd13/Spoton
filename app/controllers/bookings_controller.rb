@@ -45,6 +45,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  def todays
+    @booking = Booking.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
+  end
+
+  #ToDo: Need to add a field for indication of being emailed. Just for testing
+  def emailview
+    @bookings = Booking.where(["end_date IS NOT NULL and booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
+  end
+
+
+
+
+
   private
 
     def booking_params

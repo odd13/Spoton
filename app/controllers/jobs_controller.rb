@@ -10,12 +10,12 @@ class JobsController < ApplicationController
   end
 
   def todays
-    @jobs = Job.where("booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.ending_of_day)
+    @jobs = Job.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
   end
 
   #ToDo: Need to add a field for indication of being emailed. Just for testing
   def emailview
-    @jobs = Job.where("end_date IS NOT NULL and start_date >= ?", Time.zone.now.beginning_of_day)
+    @jobs = Job.where(["end_date IS NOT NULL and start_date >= ?", Time.zone.now.beginning_of_day])
   end
 
 

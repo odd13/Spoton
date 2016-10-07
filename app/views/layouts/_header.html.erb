@@ -12,7 +12,7 @@
     	  Login
   	<% end %></a></li>
 
-  <li class="<%= 'top active' if params[:controller] == 'todays_jobs' %><%= 'top' if params[:controller] != 'todays_jobs' %>" style="float:right"><%= link_to "Todays Jobs", todays_jobs_path %></a></li>
+  <li class="<%= 'top active' if params[:controller] == 'todays_bookings' %><%= 'top' if params[:controller] != 'todays_bookings' %>" style="float:right"><%= link_to "Todays Bookings", todays_bookings_path %></a></li>
 
   <li class="<%= 'top active' if params[:controller] == ':controller/new' %><%= 'top' if params[:controller] != ':controller/new' %>" style="float:right;">
           <b><%= link_to "+", (request.fullpath + "/new")  %></b></li>

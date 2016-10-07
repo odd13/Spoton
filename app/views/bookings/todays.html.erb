@@ -1,0 +1,39 @@
+<h1>Todays Bookings</h1>
+<%= link_to "New Booking", new_booking_url %>
+</br>
+</br>
+
+
+<% @bookings.each do |b| %>
+<strong><%= b.name %> </strong>
+	</br>
+	<% if b.start_date == nil %>
+	  <%= #link_to "Start Job", startjob_job_path(b) 
+		%>
+	  <%= button_to "Start", startjob_booking_path(b), :class => 'myButton', :method => :get %>
+	<% else %>
+	  <%= b.start_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+	<% end %>
+ ------------------ 
+	<% if b.end_date == nil %>
+	  <%= #link_to "End Job", endjob_job_path(b) 
+		%>
+	  <%= button_to "End", endjob_booking_path(b), :class => 'myButton', :method => :get %>
+	<% else %>
+	  <%= b.end_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+	<% end %>
+
+	</br>
+        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+</br>
+</br>
+<% end %>
+
+
+</br>
+<p>
+<%= link_to "Email Jobs", email_view_bookings_url %>
+</p>
+
+<% #http://stackoverflow.com/questions/13182661/rails-3-how-do-i-use-link-to-to-change-the-value-of-a-boolean-in-the-db %>
+
