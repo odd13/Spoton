@@ -1,0 +1,19 @@
+.row
+  .col-md-12
+    .navbar.navbar-inverse.navbar-default
+      .container-fluid
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Customers', customers_path
+            %li= link_to 'Locations', locations_path
+            %li= link_to 'Tasks', tasks_path
+            %li= link_to 'Bookings', bookings_path
+
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              - if action_name != 'new'
+                = link_to '+', "#{request.fullpath}/new"
+              - else
+                = link_to '+', '#'
+            %li= link_to 'Todays Jobs', todays_jobs_path
+            %li= link_to current_user.name, '#'
