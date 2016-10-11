@@ -5,22 +5,22 @@
 
 
 <% @bookings.each do |b| %>
-<strong><%= b.name %> </strong>
+<strong><%= b.location.name %> </strong>
 	</br>
-	<% if b.start_date == nil %>
+	<% if b.start_datetime == nil %>
 	  <%= #link_to "Start Job", startjob_job_path(b) 
 		%>
 	  <%= button_to "Start", startjob_booking_path(b), :class => 'myButton', :method => :get %>
 	<% else %>
-	  <%= b.start_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+	  <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
 	<% end %>
  ------------------ 
-	<% if b.end_date == nil %>
+	<% if b.end_datetime == nil %>
 	  <%= #link_to "End Job", endjob_job_path(b) 
 		%>
 	  <%= button_to "End", endjob_booking_path(b), :class => 'myButton', :method => :get %>
 	<% else %>
-	  <%= b.end_date.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+	  <%= b.end_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
 	<% end %>
 
 	</br>

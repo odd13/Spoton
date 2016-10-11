@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  get '/bookings/todays' => 'bookings#todays', as: :todays_bookings
+  get '/bookings/emailview' => 'bookings#emailview', as: :email_view_bookings
 
   resources :tasks, :customers, :locations, :bookings
 
@@ -36,10 +39,13 @@ Rails.application.routes.draw do
   get '/jobs/:id/edit', to: 'jobs#edit', as: :edit_job_path
   delete '/jobs/:id' => 'jobs#destroy'
 
-  get '/bookings/todays' => 'bookings#todays', as: :todays_bookings
-  get '/bookings/emailview' => 'bookings#emailview', as: :email_view_bookings
-  match '/bookings/:id/startjob' => 'bookings#startjob', :via => [:get], as: :startjob_job
-  match '/bookings/:id/endjob' => 'bookings#endjob', :via => [:get], as: :endjob_job
+  #get '/bookings/new' => 'bookings#new', as: :new_booking
+  #get '/bookings/todays' => 'bookings#todays', as: :todays_bookings
+#  get '/bookings/emailview' => 'bookings#emailview', as: :email_view_bookings
+  #get '/bookings/id' => 'bookings#show', as: :booking
+
+  match '/bookings/:id/startjob' => 'bookings#startjob', :via => [:get], as: :startjob_booking
+  match '/bookings/:id/endjob' => 'bookings#endjob', :via => [:get], as: :endjob_booking
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

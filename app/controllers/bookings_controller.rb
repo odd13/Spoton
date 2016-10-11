@@ -8,6 +8,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def todays
+    @bookings = Booking.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
+  end
+
   # this is a great comment
   def create
     #@booked_time = DateTime.new(2012, 8, 29, 23, 59, 59)
@@ -44,14 +48,34 @@ class BookingsController < ApplicationController
       render 'bookings/edit'
     end
   end
+#When the job is started update the start_date
+  def startjob
+    @booking = Booking.find(params[:id])
+    if @booking.update_attribute(:start_datetime, DateTime.now) ## ------&& @job.update_attribute(:start_user_id, current_user.id)
+      redirect_to :back
+    else
+      render 'bookings/todays'
+    end
+  end
+
+
+  def endjob
+    @booking = Booking.find(params[:id])
+    if @booking.update_attribute(:end_datetime, DateTime.now)
+      redirect_to :back
+    else
+      render 'bookings/todays'
+    end
+
+  end
 
   def todays
-    @booking = Booking.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
+    @bookings = Booking.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
   end
 
   #ToDo: Need to add a field for indication of being emailed. Just for testing
   def emailview
-    @bookings = Booking.where(["end_date IS NOT NULL and booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
+    @bookings = Booking.where(["end_datetime IS NOT NULL and booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
   end
 
 
