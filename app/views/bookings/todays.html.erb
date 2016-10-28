@@ -1,11 +1,11 @@
-<h1>Todays Bookings</h1>
+<h0>Todays Bookings</h1>
 <%= link_to "New Booking", new_booking_url %>
 </br>
 </br>
 
 
 <% @bookings.each do |b| %>
-<strong><%= b.location.name %> </strong>
+<strong><%= b.location.name %> - <%= link_to b.location.address, "http://maps.google.com/?q=#{b.location.address}",:target => "_blank" %></strong>
 	</br>
 	<% if b.start_datetime == nil %>
 	  <%= #link_to "Start Job", startjob_job_path(b) 

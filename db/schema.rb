@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510100352) do
+ActiveRecord::Schema.define(version: 20161017042350) do
 
   create_table "bookings", force: :cascade do |t|
+    t.integer  "customer_id"
     t.integer  "location_id"
     t.integer  "user_id"
     t.integer  "task_id"
@@ -24,8 +25,10 @@ ActiveRecord::Schema.define(version: 20160510100352) do
     t.datetime "end_datetime"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.text     "description"
   end
 
+  add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id"
   add_index "bookings", ["location_id"], name: "index_bookings_on_location_id"
   add_index "bookings", ["task_id"], name: "index_bookings_on_task_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
@@ -40,6 +43,12 @@ ActiveRecord::Schema.define(version: 20160510100352) do
     t.string   "email"
     t.string   "phone"
     t.boolean  "is_active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer  "invoiceNum"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

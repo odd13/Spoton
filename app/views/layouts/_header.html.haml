@@ -8,6 +8,7 @@
             %li= link_to 'Locations', locations_path
             %li= link_to 'Tasks', tasks_path
             %li= link_to 'Bookings', bookings_path
+            %li= link_to 'Invoices', invoices_path
 
           %ul.nav.navbar-nav.navbar-right
             %li
@@ -16,4 +17,7 @@
               - else
                 = link_to '+', '#'
             %li= link_to 'Todays Jobs', todays_bookings_path
-            %li= link_to current_user.name, '#'
+            - if current_user
+              %li= link_to current_user.name, '#'
+            - else
+              %li= link_to 'Login', '#'

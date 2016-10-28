@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   
   get '/bookings/todays' => 'bookings#todays', as: :todays_bookings
   get '/bookings/emailview' => 'bookings#emailview', as: :email_view_bookings
+  get '/bookings/invoice' => 'bookings#invoice', as: :invoice_bookings
 
-  resources :tasks, :customers, :locations, :bookings
+  resources :tasks, :customers, :locations, :bookings, :invoices
 
   get 'welcome/index'
  
