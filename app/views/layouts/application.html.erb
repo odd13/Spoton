@@ -10,8 +10,19 @@
   <%= render 'layouts/header' %>
 
   <div class="container-fluid">
-    <%= yield %>
+ 
+     <div class="row">
+      <div class="col-sm-3 col-lg-2">
+      <nav class="navbar navbar-default navbar-fluid navbar-fixed-side">
+        <!-- normal collapsible navbar markup -->
+        <%= render 'layouts/sidemenu' %>
+      </nav>
+    </div>
+    <div class="col-sm-9 col-lg-10">
+      <!-- your page content -->      
+      <%= yield %>
+    </div>
   </div>
-
+</div>
 </body>
 </html>

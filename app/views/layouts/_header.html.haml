@@ -4,11 +4,7 @@
       .container-fluid
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li= link_to 'Customersss', customers_path
-            %li= link_to 'Locations', locations_path
-            %li= link_to 'Tasks', tasks_path
-            %li= link_to 'Bookings', bookings_path
-            %li= link_to 'Invoices', invoices_path
+            %li= link_to request.fullpath, request.fullpath
 
           %ul.nav.navbar-nav.navbar-right
             %li
