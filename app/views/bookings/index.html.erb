@@ -1,9 +1,35 @@
-<h1>Bookings</h1>
-
-<% @bookings.each do |b| %>
+<h2>Jobs</h2>
+<h3>Scheduled</h3>
+<% @jobBookings.each do |b| %>
   <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
         <%= link_to "Edit", edit_booking_path(b) %>
         <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+
+</br>
+<% end%>
+<h3>To Schedule</h3>
+<% @jobToScheduleBookings.each do |b| %>
+  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
+        <%= link_to "Edit", edit_booking_path(b) %>
+        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+
+</br>
+<% end%>
+
+
+<h2>Quotes</h2>
+<% @quoteBookings.each do |b| %>
+  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
+        <%= link_to "Edit", edit_booking_path(b) %>
+        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+
+</br>
+<% end%>
+
+<h2>To Invoice</h2>
+<% @completedBookings.each do |b| %>
+  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
+        <%= link_to "Edit", edit_booking_path(b) %>
 
 
 </br>
