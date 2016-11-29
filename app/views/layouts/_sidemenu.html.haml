@@ -1,11 +1,9 @@
-.row-fluid
-  .sidebar
-    .navbar.navbar-inverse.navbar-default.navbar-fixed-side
-      .container-fluid
-        .collapse.navbar-collapse
-          %ul.nav.sidebar-nav
-            %li= link_to 'Customers', customers_path
-            %li= link_to 'Locations', locations_path
-            %li= link_to 'Tasks', tasks_path
-            %li= link_to 'Bookings', bookings_path
-            %li= link_to 'Invoices', invoices_path
+.sidebar-wrapper
+  .nav.navbar.navbar-inverse.sidebar-nav
+    %ul.nav.sidebar-nav.nav-default
+      %li= link_to 'Bookings', bookings_path
+      %li= '< /hr>'
+      %li= link_to 'Customers', customers_path
+      %li= link_to 'Locations', locations_path
+      %li= link_to 'Tasks', tasks_path
+      %li= link_to 'Invoices', invoices_path
