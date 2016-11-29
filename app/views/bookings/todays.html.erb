@@ -27,7 +27,40 @@
         <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
 </br>
 </br>
+
+
+
+
+
 <% end %>
+
+<div class="list-group">
+<% @bookings.each do |b| %>
+        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
+        <h3 class="list-group-item-heading"><%= b.location.name %></h3>
+        <p class="list-group-item-text"><%= b.task.name %> : <%= b.booked_time %>
+	
+	<% if b.end_datetime == nil %>
+		<% if b.start_datetime == nil %>
+          		<%= button_to "Start", startjob_booking_path(b), :class => 'btn btn-success btn-xs', :method => :get %>
+        	<% else %>
+			<%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
+			<%= button_to "End", endjob_booking_path(b), :class => 'btn btn-success btn-xs', :method => :get %>
+		<% end %>
+	<% else %>
+	  <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
+          <%= b.end_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+        <% end %>
+	</p>
+
+	
+        <%= link_to raw('<span style="text-align:center">delete</span>'), booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+        </a>
+<% end %>
+</div>
+
+
+
 
 
 </br>

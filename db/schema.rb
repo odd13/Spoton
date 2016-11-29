@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20161028072031) do
-=======
 ActiveRecord::Schema.define(version: 20161123091856) do
->>>>>>> refs/remotes/origin/master
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "customer_id"
