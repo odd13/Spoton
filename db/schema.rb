@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161028072031) do
+=======
+ActiveRecord::Schema.define(version: 20161123091856) do
+>>>>>>> refs/remotes/origin/master
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "customer_id"
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161028072031) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.text     "description"
+    t.string   "externalref"
   end
 
   add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id"

@@ -1,10 +1,38 @@
-<h1>Bookings</h1>
-
-<% @bookings.each do |b| %>
+<h2>Jobs</h2>
+<h3>Scheduled</h3>
+<% @jobBookings.each do |b| %>
   <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
         <%= link_to "Edit", edit_booking_path(b) %>
         <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
 
+</br>
+<% end%>
+<h3>To Schedule</h3>
+<% @jobToScheduleBookings.each do |b| %>
+  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
+        <%= link_to "Edit", edit_booking_path(b) %>
+        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
 
 </br>
 <% end%>
+
+
+<h2>Quotes</h2>
+<% @quoteBookings.each do |b| %>
+  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
+        <%= link_to "Edit", edit_booking_path(b) %>
+        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+
+</br>
+<% end%>
+
+<h2>To Invoice</h2>
+<div class="list-group">
+<% @completedBookings.each do |b| %>
+        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
+        <h3 class="list-group-item-heading"><%= b.location.name %></h3>
+        <p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time %></p>
+        <%= link_to raw('<span style="text-align:center">delete</span>'), booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+        </a>
+<% end %>
+</div>

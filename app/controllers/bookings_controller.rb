@@ -2,6 +2,11 @@ class BookingsController < ApplicationController
   def index
     #@bookings = Booking.where("customer_id = ?", params[current_user.custome$
     @bookings = Booking.all
+    #@jobBookings = Booking.where([" task_id != ? and booked_time IS NOT NULL", 4])
+    jobbookings
+    @jobToScheduleBookings = Booking.where([" task_id != ? and booked_time IS NULL", 4])
+    @quoteBookings = Booking.where([" task_id = ?", 4])
+    @completedBookings = Booking.where([" end_datetime IS NOT NULL"])
   end
 
   def new
@@ -11,6 +16,17 @@ class BookingsController < ApplicationController
   def todays
     @bookings = Booking.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
   end
+#  def jobbookings
+#    @jobBookings = Booking.where([" task_id != ?", 4])
+#  end
+  def quoteBookings
+    @bookings = Booking.where([" task_id = ?", 4])
+  end
+  def completedBookings
+    @bookings = Booking.where([" end_datetime IS NOT NULL"])
+  end
+
+
 
   # this is a great comment
   def create
@@ -83,9 +99,13 @@ class BookingsController < ApplicationController
 
 
   private
+  def jobbookings
+    @jobBookings = Booking.where([" task_id != ? and booked_time IS NOT NULL", 4])
+  end
+
 
     def booking_params
-      params.require(:booking).permit(:name, :hours, :booked_time, :customer_id, :task_id, :location_id, :start_datetime, :description)
+      params.require(:booking).permit(:name, :hours, :booked_time, :customer_id, :task_id, :location_id, :start_datetime, :description, :externalref)
     end
 
 
