@@ -1,0 +1,12 @@
+= semantic_form_for @case do |f|
+  //= f.input :customer, include_blank: false
+  //= f.collection_select(:customer, :location_id, Locations.all, :id, :name)
+  ///= f.input :location, include_blank: false
+  ///= f.input :task, include_blank: false
+  ///= f.input :description, include_blank: false
+  ///= f.input :booked_time, as: :string,
+    ///append: content_tag( :span, nil, class: 'glyphicon glyphicon-calendar' )
+
+  = f.actions do
+    = f.action :submit, as: :button
+    = f.action :cancel, as: :link

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/bookings/emailview' => 'bookings#emailview', as: :email_view_bookings
   get '/bookings/invoice' => 'bookings#invoice', as: :invoice_bookings
 
-  resources :tasks, :customers, :locations, :bookings, :invoices
+  resources :tasks, :customers, :locations, :bookings, :invoices, :cases
 
   get 'welcome/index'
  
