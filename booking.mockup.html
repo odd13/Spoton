@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/4.0.0-alpha/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+  </head>
+
+<body>
+
+  <div class="container">
+    <h1>BOOKINGS</h1>
+    <h2>To Schedule</h2>
+  </div>
+<div class="container">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Jim A</th>
+        <td>Calypso </td>
+        <td>{{DATE SELECT FORM BTN}}</td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td>Calypso 2</td>
+        <td>{{DATE SELECT FORM BTN}}</td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td>Test</td>
+        <td>Calypso</td>
+      </tr>
+    </tbody>
+  </table>
+
+</br>
+
+
+  <h2>Scheduled</h2>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th colspan="3" class="text-center">Monday</th>
+      </tr>
+      <tr>
+        <th >Account</th>
+        <th >Title</th>
+        <th ></th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Jim A</th>
+      <td>Calypso </td>
+      <td>{{DATE}}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Calypso 2</td>
+      <td>{{DATE}}</td>
+    </tr>
+    <tr class="table-danger">
+      <th scope="row"></th>
+      <td>Test</td>
+      <td >{{DATE}}</td>
+    </tr>
+    <tr>
+      <th colspan="3" class="text-center">{{BUTTON TO PRINT ALL JOBS}}</th>
+    </tr>
+  </tbody>
+</table>
+
+---------------------------
+</br>
+---------------------------
+
+  <h1>Quotes</h1>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th>Charges</th>
+        <th>Date Sent</th>
+        <th>Accepted</th>
+      </tr>
+
+    </thead>
+  <tbody>
+    <tr class="table-danger">
+      <th scope="row">Jim A</th>
+      <td>Calypso </td>
+      <td>$50</td>
+      <td>{{SEND QUOTE}}</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Calypso </td>
+      <td>$50</td>
+      <td>03/12/2016</td>
+      <td>{{ACCEPTED BTN}}</td>
+    </tr>
+    <tr >
+      <th scope="row"></th>
+      <td>Calypso </td>
+      <td>$50</td>
+      <td>03/12/2016</td>
+      <td>{{ACCEPTED BTN}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+---------------------------
+</br>
+---------------------------
+
+<h2>To Invoice</h2>
+<table class="table table-sm table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Title</th>
+      <th>Date Worked</th>
+      <th></th>
+    </tr>
+
+  </thead>
+<tbody>
+  <tr>
+    <th scope="row">Jim A</th>
+    <td>Calypso </td>
+    <td></td>
+    <td>{{SEND INVOICE}}</td>
+  </tr>
+  <tr>
+    <th scope="row"></th>
+    <td>Calypso </td>
+    <td>03/12/2016</td>
+    <td>{{SEND INVOICE}}</td>
+  </tr>
+  <tr >
+    <th scope="row"></th>
+    <td>Calypso </td>
+    <td>03/12/2016</td>
+    <td>{{SEND QUOTE}}</td>
+  </tr>
+
+</tbody>
+</table>
+
+<h2>Invoiced</h2>
+<table class="table table-sm table-hover table-striped">
+  <thead>
+      <tr >
+        <th colspan="4" class="text-center">December 2016</th>
+      </tr>
+    <tr>
+      <th>Account</th>
+      <th>Title</th>
+      <th>Date Worked</th>
+      <th class="text-centered">Paid</th>
+    </tr>
+
+  </thead>
+<tbody>
+  <tr class="table-danger">
+    <th scope="row">Jim A</th>
+    <td >Calypso </td>
+    <td>03/12/2016</td>
+    <td>{{TICKBOX}}</td>
+  </tr>
+  <tr class="table-danger">
+    <th scope="row"></th>
+    <td>Calypso </td>
+    <td>03/12/2016</td>
+    <td>{{TICKBOX}}</td>
+  </tr>
+  <tr >
+    <th scope="row"></th>
+    <td>Calypso </td>
+    <td>03/12/2016</td>
+    <td>03/12/2016</td>
+  </tr>
+  <tr >
+    <th scope="row"></th>
+    <td>Calypso </td>
+    <td>03/12/2016</td>
+    <td>03/12/2016</td>
+  </tr>
+  <tr >
+    <th scope="row"></th>
+    <td>Calypso </td>
+    <td>03/12/2016</td>
+    <td>03/12/2016</td>
+  </tr>
+
+</tbody>
+</table>
+---------------------------
+</br>
+---------------------------
+
+
+</br>
+<table class="table table-sm table-inverse table-hover">
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Title</th>
+      <th></th>
+
+    </tr>
+  </thead>
+<tbody>
+  <tr>
+    <th scope="row">Jim A</th>
+    <td>Calypso </td>
+    <td>{{DATE SELECT FORM BTN}}</td>
+  </tr>
+  <tr>
+    <th scope="row"></th>
+    <td>Calypso 2</td>
+    <td>{{DATE SELECT FORM BTN}}</td>
+  </tr>
+  <tr class="bg-danger">
+    <th scope="row"></th>
+    <td>Test</td>
+    <td >Calypsyyyyo</td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+</body>
+
+</html>
+
