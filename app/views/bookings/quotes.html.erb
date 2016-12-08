@@ -1,0 +1,27 @@
+
+  <h1>Quotes</h1>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th>Charges</th>
+        <th>Date Sent</th>
+        <th>Accepted</th>
+      </tr>
+
+    </thead>
+  <tbody>
+
+<% @quotebookings.each do |t| %>
+    <tr class="table-danger">
+      <th scope="row"><%= t.location.customer.name %></th>
+      <td> <%= t.location.name %></td>
+      <td>$50</td>
+      <td class='text-center'><span class='glyphicon glyphicon-upload'></span></td>
+      <td class='text-center'><span class='glyphicon glyphicon-ok'></span></td>
+    </tr>
+
+<% end%>
+</tbody>
+</table>

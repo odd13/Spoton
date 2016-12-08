@@ -1,0 +1,50 @@
+<h2>To Invoice</h2>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th>Date Worked</th>
+        <th></th>
+      </tr>
+
+    </thead>
+  <tbody>
+
+<% @bookings.each do |t| %>
+    <tr class="table-danger">
+      <th scope="row"><%= t.location.customer.name %></th>
+      <td> <%= t.location.name %></td>
+      <td>03/12/2016</td>
+      <td class='text-center'><span class='glyphicon glyphicon-upload'></span>or 03/12/2016</td>
+    </tr>
+
+<% end%>
+</tbody>
+</table>
+
+<h2>Invoiced</h2>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th>Date Worked</th>
+        <th>Paid</th>
+      </tr>
+
+    </thead>
+  <tbody>
+
+<% @bookings.each do |t| %>
+    <tr class="table-danger">
+      <th scope="row"><%= t.location.customer.name %></th>
+      <td> <%= t.location.name %></td>
+      <td>01/01/2016</td>
+      <td class='text-center'><span class='glyphicon glyphicon-ok-circle'></span>or 02/01/2016</td>
+    </tr>
+
+<% end%>
+</tbody>
+</table>
+

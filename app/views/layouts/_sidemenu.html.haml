@@ -1,9 +1,20 @@
-.sidebar-wrapper
-  .nav.navbar.navbar-inverse.sidebar-nav
-    %ul.nav.sidebar-nav.nav-default
-      %li= link_to 'Bookings', bookings_path
-      %li= '< /hr>'
-      %li= link_to 'Customers', customers_path
-      %li= link_to 'Locations', locations_path
-      %li= link_to 'Tasks', tasks_path
-      %li= link_to 'Invoices', invoices_path
+.row
+  .col-md-12.col-lg-12.col-sm-12
+    .nav.navbar.navbar-inverse.sidebar
+      .navbar-header
+        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle Navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      .collapse.navbar-collapse.navbar-ex1-collapse
+        %ul.nav.side-menu
+          %li
+            = link_to 'Bookings', bookings_path, :class=>'text-center divider-horizontal'
+            %ul.nav.side-menu
+              %li= link_to 'Quotes', quote_bookings_path, :class=>'text-center divider-horizontal'
+              %li= link_to 'Invoices', invoice_bookings_path, :class=>'text-center divider-horizontal'
+          %hr
+          %li= link_to 'Customers', customers_path, :class=>'text-center divider-horizontal'
+          %li= link_to 'Locations', locations_path, :class=>'text-center divider-horizontal'
+          %li= link_to 'Tasks', tasks_path, :class=>'text-center divider-horizontal'

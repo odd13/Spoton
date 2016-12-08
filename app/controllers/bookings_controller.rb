@@ -19,11 +19,14 @@ class BookingsController < ApplicationController
 #  def jobbookings
 #    @jobBookings = Booking.where([" task_id != ?", 4])
 #  end
-  def quoteBookings
-    @bookings = Booking.where([" task_id = ?", 4])
+  def quotes
+    @quotebookings = Booking.where([" task_id = ?", 4])
   end
   def completedBookings
-    @bookings = Booking.where([" end_datetime IS NOT NULL"])
+    @completedbookings = Booking.where([" end_datetime IS NOT NULL"])
+  end
+  def invoices
+    @bookings = Booking.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
   end
 
 

@@ -1,19 +1,18 @@
 .row
   .col-md-12
-    .navbar.navbar-inverse.navbar-default
-      .container-fluid
-        .collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li= link_to request.fullpath, request.fullpath
+    .nave.navbar.navbar-inverse
+      .container-fluid    
+        %ul.nav.navbar-nav
+          %li= link_to request.fullpath, request.fullpath
 
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              - if action_name != 'new'
-                = link_to '+', "#{request.fullpath}/new"
-              - else
-                = link_to '+', '#'
-            %li= link_to 'Todays Jobs', todays_bookings_path
-            - if current_user
-              %li= link_to current_user.name, '#'
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            - if action_name != 'new'
+              = link_to '+', "#{request.fullpath}/new"
             - else
-              %li= link_to 'Login', '#'
+              = link_to '+', '#'
+          %li= link_to 'Todays Jobs', todays_bookings_path
+          - if current_user
+            %li= link_to current_user.name, '#'
+          - else
+            %li= link_to 'Login', '#'

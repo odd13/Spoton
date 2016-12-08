@@ -2,27 +2,30 @@
 <html>
 <head>
   <title>Spoton</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/header' %>
-
-  <div class="container-fluid">
- 
-     <div class="row">
-      <div class="col-sm-3 col-lg-2">
-      <nav class="navbar navbar-default navbar-fluid navbar-fixed-side">
+      <div class="row">
+        <%= render 'layouts/header' %>
+      </div>
+    
+	<div class="row">
+       <div class="col-sm-3 col-lg-2 col-md-2">
+      
         <!-- normal collapsible navbar markup -->
         <%= render 'layouts/sidemenu' %>
-      </nav>
-    </div>
-    <div class="col-sm-9 col-lg-10">
-      <!-- your page content -->      
-      <%= yield %>
-    </div>
-  </div>
+      
+       </div>
+
+<div class="container">  
+     <div class="col-sm-9 col-lg-10">
+        <!-- your page content -->      
+        <%= yield %>
+       </div>
+     </div>
 </div>
 </body>
 </html>

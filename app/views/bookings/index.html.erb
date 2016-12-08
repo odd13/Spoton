@@ -1,38 +1,62 @@
-<h2>Jobs</h2>
-<h3>Scheduled</h3>
-<% @jobBookings.each do |b| %>
-  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
-        <%= link_to "Edit", edit_booking_path(b) %>
-        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+<h2>To Schedule</h2>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th></th>
 
-</br>
-<% end%>
-<h3>To Schedule</h3>
-<% @jobToScheduleBookings.each do |b| %>
-  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
-        <%= link_to "Edit", edit_booking_path(b) %>
-        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+      </tr>
+    </thead>
+    <tbody>
+	<% @jobToScheduleBookings.each do |t| %>
+	 <tr>
+          <th scope="row"><%= t.location.customer.name %></th>
+          <td><%= t.location.name %></td>
+          <td class='text-center'><span class='glyphicon glyphicon-calendar'></span></td>
+         </tr>
+	<% end %>
+  </tbody>
+</table>
 
-</br>
-<% end%>
+
+<h2>Scheduled</h2>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Title</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <% @jobBookings.each do |t| %>
+         <tr>
+          <th scope="row"><%= t.location.customer.name %></th>
+          <td><%= t.location.name %></td>
+          <td class='text-center'><%= t.booked_time.strftime("%d-%m-%Y") %></span></td>
+         </tr>
+        <% end %>
+  </tbody>
+</table>
 
 
-<h2>Quotes</h2>
-<% @quoteBookings.each do |b| %>
-  <%= b.location.name %> - <%= b.task.name %> - <%= b.booked_time %>
-        <%= link_to "Edit", edit_booking_path(b) %>
-        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
-
-</br>
-<% end%>
 
 <h2>To Invoice</h2>
 <div class="list-group">
 <% @completedBookings.each do |b| %>
         <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
         <h3 class="list-group-item-heading"><%= b.location.name %></h3>
-        <p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time %></p>
-        <%= link_to raw('<span style="text-align:center">delete</span>'), booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
+          <span class="pull-right">
+          <%= button_to booking_path(b), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+             <span class="glyphicon glyphicon-trash"></span>
+         <% end %>
+
+        </span>
+
+        <p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time.strftime("%d-%m-%Y") %></p>
+	
         </a>
 <% end %>
 </div>

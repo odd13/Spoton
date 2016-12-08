@@ -60,10 +60,43 @@
 </div>
 
 
-
-
-
 </br>
+
+<div class="list-group">
+<% @bookings.each do |b| %>
+        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
+        <h3 class="list-group-item-heading"><%= b.location.name %></h3>
+          <span class="pull-right">
+          <%= button_to booking_path(b), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+             <span class="glyphicon glyphicon-trash"></span>
+         <% end %>
+
+        </span>
+
+	<span class="pull-right">
+        <% if b.end_datetime == nil %>
+                <% if b.start_datetime == nil %>
+                        <%= button_to booking_path(b), :class => 'btn btn-success btn-xs', :action => "startjob" do %>
+			<span class="glyphicon glyphicon-trash"></span>
+			<% end %>
+                <% else %>
+                        <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
+                        <%= button_to "End", endjob_booking_path(b), :class => 'btn btn-success btn-xs', :method => :get %>
+                <% end %>
+	<% end %>
+	</span>
+<p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time.strftime("%d-%m-%Y") %>
+
+</p>
+
+        </a>
+<% end %>
+</div>
+
+
+
+
+
 <p>
 <%= link_to "Email Jobs", email_view_bookings_url %>
 </p>
