@@ -1,11 +1,23 @@
 <h1>Tasks</h1>
-</br>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+  <tbody>
 
 <% @tasks.each do |t| %>
+    <tr class='clickable-row' data-href='<%= edit_task_path(t) %>'>
+      <td><%= t.name %></td>
+      <td class='text-center'>
+          <%= button_to task_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+             <span class="glyphicon glyphicon-trash"></span>
+         <% end %>
+      </td>
+    </tr>
+<% end %>
 
-	<%= t.name %> 
-	<%= link_to('Edit', edit_task_path(t))%> --
-	<%= link_to("delete", task_path(t), method: :delete, data: { confirm: "You sure?" }) %>
-</br>
-<% end%>
-
+</tbody>
+</table>

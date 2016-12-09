@@ -1,12 +1,34 @@
-<h1>Customers</h1>
-</br>
+
+  <h1>Customers</h1>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Address</th>
+        <th></th>
+      </tr>
+
+    </thead>
+  <tbody>
+
 <% @customers.each do |t| %>
-------------------------------------------
-<h3><%= t.name %></h3>
-<%= t.address %>
-</br>
-  <%= link_to "Locations", customer_path(t) %> -
-  <%= link_to "Edit", edit_customer_path(t) %> -
-  <%= link_to "delete", customer_path(t), method: :delete, data: { confirm: "You sure?" } %>
-</br>
+    <tr class='clickable-row' data-href='<%= edit_customer_path(t) %>'>
+      <th scope="row"><%= t.name %></th>
+      <td> <%= t.address %></td>
+      <td class='text-center'>
+	<div class="form-inline btn-group" role="group">
+	<%= button_to customer_path(t), :class=>'btn btn-xs btn-secondary', method: :get do %>
+             <span class="glyphicon glyphicon-home"></span>
+         <% end %>
+
+          <%= button_to customer_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+             <span class="glyphicon glyphicon-trash"></span>
+         <% end %>
+	</div>
+	</td>
+    </tr>
+
 <% end%>
+</tbody>
+</table>
+

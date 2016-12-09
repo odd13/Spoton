@@ -1,15 +1,48 @@
-<h1>Locations</h1>
-</br>
-</br>
+
+  <h1>Locations</h1>
+  <table class="table table-sm table-hover table-striped">
+    <thead>
+      <tr>
+	<th>Customer</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th></th>
+      </tr>
+
+    </thead>
+  <tbody>
 
 <% @locations.each do |t| %>
-<%= t.name %> - <%= link_to t.address, "http://maps.google.com/?q=#{t.address}",:target => "_blank" %>
+    <tr>
+      <th scope="row"><%= link_to edit_location_path(t),:class=>'deco-none nounderline' do %>
+                <div id="clickable">
+		<%= t.customer.name %>
+		</div>
+                <%end %></th>
+		
+      <td><%= link_to edit_location_path(t) do %>
+		<div id="clickable">
+		<%= t.name %>
+		</div>
+		<%end %></td>
+      <td><%= link_to edit_location_path(t)do %>
+	<div id="clickable">
+	<%= t.address %>
+	</div>
+	<% end %></td>
+      <td class='text-center'>
+ 	<%= link_to "http://maps.google.com/?q=#{t.address}",:target => "_blank", :class=>'btn'  do %>
+             <span class="glyphicon glyphicon-map-marker"></span>
+         <% end %>
 
-</br>
-<%= t.created_at.strftime("%d-%m-%Y") %>
-        <%= link_to "Edit", edit_location_path(t) %>
-        <%= link_to "delete", location_path(t), method: :delete, data: { confirm: "You sure?" } %>
-</br>----------------------
 
-</br>
+          <%= button_to location_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+             <span class="glyphicon glyphicon-trash"></span>
+         <% end %>
+        </td>
+    </tr>
+
 <% end%>
+</tbody>
+</table>
+
