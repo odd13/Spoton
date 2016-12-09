@@ -64,7 +64,7 @@
 
 <div class="list-group">
 <% @bookings.each do |b| %>
-        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
+        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action clearfix">
         <h3 class="list-group-item-heading"><%= b.location.name %></h3>
           <span class="pull-right">
           <%= button_to booking_path(b), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
@@ -73,7 +73,7 @@
 
         </span>
 
-	<span class="pull-right">
+	<span class="pull-left clearfix">
         <% if b.end_datetime == nil %>
                 <% if b.start_datetime == nil %>
                         <%= button_to booking_path(b), :class => 'btn btn-success btn-xs', :action => "startjob" do %>
@@ -81,7 +81,7 @@
 			<% end %>
                 <% else %>
                         <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
-                        <%= button_to "End", endjob_booking_path(b), :class => 'btn btn-success btn-xs', :method => :get %>
+                        <%= button_to "End", endjob_booking_path(b), :class => 'btn btn-success btn-xs'%>
                 <% end %>
 	<% end %>
 	</span>

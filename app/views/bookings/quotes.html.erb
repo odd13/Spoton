@@ -14,7 +14,7 @@
   <tbody>
 
 <% @quotebookings.each do |t| %>
-    <tr class="table-danger">
+    <tr class='clickable-row' data-href='<%= edit_booking_path(t) %>'>
       <th scope="row"><%= t.location.customer.name %></th>
       <td> <%= t.location.name %></td>
       <td>$50</td>

@@ -13,7 +13,14 @@
 	 <tr>
           <th scope="row"><%= t.location.customer.name %></th>
           <td><%= t.location.name %></td>
-          <td class='text-center'><span class='glyphicon glyphicon-calendar'></span></td>
+          <td class='text-center'>
+		<div class="form-group">
+			<%= button_to edit_booking_path(t), :class=>'btn btn-xs', :method => :get do %>
+			  <span class='glyphicon glyphicon-pencil'></span>
+			<% end %>
+				<span class='glyphicon glyphicon-calendar'></span>
+		</div>
+		</td>
          </tr>
 	<% end %>
   </tbody>
