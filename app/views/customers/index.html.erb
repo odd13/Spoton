@@ -13,7 +13,7 @@
 
 <% @customers.each do |t| %>
     <tr class='clickable-row' data-href='<%= edit_customer_path(t) %>'>
-      <th scope="row"><%= t.name %></th>
+      <td><%= t.name %></td>
       <td> <%= t.address %></td>
       <td class='text-center'>
 	<div class="form-inline btn-group" role="group">

@@ -34,6 +34,7 @@
         <th>Account</th>
         <th>Title</th>
         <th></th>
+	<th></th>
 
       </tr>
     </thead>
@@ -43,6 +44,13 @@
           <th scope="row"><%= t.location.customer.name %></th>
           <td><%= t.location.name %></td>
           <td class='text-center'><%= t.booked_time.strftime("%d-%m-%Y") %></span></td>
+
+	<td class='text-center'>
+          <%= button_to booking_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+             <span class="glyphicon glyphicon-trash"></span>
+         <% end %>
+      </td>
+
          </tr>
         <% end %>
   </tbody>

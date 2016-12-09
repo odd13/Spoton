@@ -7,6 +7,7 @@
         <th>Name</th>
         <th>Address</th>
         <th></th>
+	<th></th>
       </tr>
 
     </thead>
@@ -31,11 +32,12 @@
 	</div>
 	<% end %></td>
       <td class='text-center'>
- 	<%= link_to "http://maps.google.com/?q=#{t.address}",:target => "_blank", :class=>'btn'  do %>
+ 	<%= link_to "http://maps.google.com/?q=#{t.address}",:target => "_blank", :class=>'btn btn-xs btn-info'  do %>
              <span class="glyphicon glyphicon-map-marker"></span>
          <% end %>
 
-
+	</td>
+	<td class='text-center'>
           <%= button_to location_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
              <span class="glyphicon glyphicon-trash"></span>
          <% end %>
