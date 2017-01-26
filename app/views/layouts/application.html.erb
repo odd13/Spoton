@@ -11,18 +11,19 @@
       <div class="row">
         <%= render 'layouts/header' %>
       </div>
-    
-	<div class="row">
-       <div class="col-sm-3 col-lg-2 col-md-2">
-      
-        <!-- normal collapsible navbar markup -->
-        <%= render 'layouts/sidemenu' %>
-      
-       </div>
 
-<div class="container">  
-     <div class="col-sm-9 col-lg-10">
-        <!-- your page content -->      
+	<div class="row">
+    <!--
+       <div class="col-sm-3 col-lg-2 col-md-2">
+
+        <!-- normal collapsible navbar markup
+        <%= render 'layouts/sidemenu' %>
+
+       </div>
+     -->
+<div class="container">
+     <div class="col-sm-8 col-lg-8 col-md-offset-2">
+        <!-- your page content -->
         <%= yield %>
        </div>
      </div>
