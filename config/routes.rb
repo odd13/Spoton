@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :tasks, :customers, :locations, :bookings, :invoices, :cases
 
   get 'welcome/index'
- 
+  get 'welcome/dev_index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
