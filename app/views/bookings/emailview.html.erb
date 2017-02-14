@@ -1,5 +1,5 @@
 <h1>Email View</h1>
-<% #Need to replace the current_user with the linked user to the job logged %>
+<% # TODO: Need to replace the current_user with the linked user to the job logged %>
 
 <% @bookings.each do |b| %>
 <strong><%= b.location.name %> </strong>
@@ -11,4 +11,3 @@ End Date\Time: <%= b.end_datetime.strftime("%I:%M%p") %> (Completed by: <%= curr
 </br>
 </br>
 <% end %>
-

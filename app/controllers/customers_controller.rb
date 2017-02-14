@@ -12,9 +12,9 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      redirect_to :action => 'index' #render 'customers/index' # Handle a successful save.
+      redirect_to action: 'index'
     else
-      redirect_to :action => 'new'  #render 'customers/new'
+      redirect_to action: 'new'
     end
   end
 
@@ -26,8 +26,8 @@ class CustomersController < ApplicationController
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
-    flash[:success] = "Customer deleted"
-    redirect_to '/customers'
+    flash[:success] = 'Customer deleted'
+    redirect_to customers_path
   end
 
   def edit
@@ -46,8 +46,9 @@ class CustomersController < ApplicationController
 
   private
 
-    def customer_params
-      params.require(:customer).permit(:name, :address, :suburb, :state, :postcode, :country, :email, :phone)
-    end
-
+  def customer_params
+    params.require(:customer).permit(
+      :name, :address, :suburb, :state, :postcode, :country, :email, :phone
+    )
+  end
 end

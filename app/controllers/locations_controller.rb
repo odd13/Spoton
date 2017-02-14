@@ -2,7 +2,6 @@ class LocationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    #@locations = Location.where("customer_id = ?", params[current_user.customer_id])
     @locations = Location.all
   end
 
@@ -13,9 +12,9 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      redirect_to :action => 'index' #render 'locations/index' # Handle a successful save.
+      redirect_to action: 'index'
     else
-      redirect_to :action => 'new'  #render 'locations/new'
+      redirect_to action: 'new'
     end
   end
 
@@ -26,7 +25,7 @@ class LocationsController < ApplicationController
   def destroy
     @location = Location.find(params[:id])
     @location.destroy
-    flash[:success] = "Location deleted"
+    flash[:success] = 'Location deleted'
     redirect_to '/locations'
   end
 
@@ -46,7 +45,7 @@ class LocationsController < ApplicationController
 
   private
 
-    def location_params
-      params.require(:location).permit(:name, :address, :customer_id)
-    end
+  def location_params
+    params.require(:location).permit(:name, :address, :customer_id)
+  end
 end
