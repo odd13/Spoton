@@ -1,13 +1,13 @@
 //= require jquery
+// require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-//= require jquery.turbolinks
 //= require_tree .
 //
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
+// require turbolinks
 
 jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
