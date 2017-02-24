@@ -1,2 +1,19 @@
-<h1>Property Bookings</h1>
 
+<h1><%= @booking.location.name %></h1>
+
+<strong><%= @booking.location.name %> - <%= link_to @booking.location.address, "http://maps.google.com/?q=#{@booking.location.address}",:target => "_blank" %></strong></br>
+<%= @booking.task.name %></br>
+<%= @booking.description %></br>
+
+
+<% if @booking.end_datetime == nil %>
+  <% if @booking.start_datetime == nil %>
+    <%= button_to "Start", startjob_booking_path(@booking), :class => 'btn btn-success btn-lg', :method => :get %>
+  <% else %>
+    <%= @booking.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
+    <%= button_to "End", endjob_booking_path(@booking), :class => 'btn btn-success btn-lg', :method => :get %>
+  <% end %>
+<% else %>
+  <%= @booking.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
+  <%= @booking.end_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+<% end %>

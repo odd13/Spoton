@@ -53,7 +53,8 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
+    # TODO: fix this mixed job/booking
+    @job = Booking.find(params[:id])
   end
 
   def destroy

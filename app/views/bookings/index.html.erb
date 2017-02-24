@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-	<% @jobToScheduleBookings.each do |t| %>
+	<% @job_to_schedule_bookings.each do |t| %>
 	 <tr>
           <th scope="row"><%= t.location.customer.name %></th>
           <td><%= t.location.name %></td>
@@ -39,7 +39,7 @@
       </tr>
     </thead>
     <tbody>
-        <% @jobBookings.each do |t| %>
+        <% @job_bookings.each do |t| %>
          <tr>
           <th scope="row"><%= t.location.customer.name %></th>
           <td><%= t.location.name %></td>
@@ -60,7 +60,7 @@
 
 <h2>To Invoice</h2>
 <div class="list-group">
-<% @completedBookings.each do |b| %>
+<% @completed_bookings.each do |b| %>
         <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
         <h3 class="list-group-item-heading"><%= b.location.name %></h3>
           <span class="pull-right">

@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
       ['booked_time > ? and booked_time < ?',
        Time.zone.now.beginning_of_day,
        Time.zone.now.end_of_day]
-    )
+    ).order(:end_datetime)
   end
 
   def quotes

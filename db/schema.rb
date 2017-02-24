@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -27,12 +26,11 @@ ActiveRecord::Schema.define(version: 20161123091856) do
     t.datetime "updated_at",     null: false
     t.text     "description"
     t.string   "externalref"
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["location_id"], name: "index_bookings_on_location_id"
+    t.index ["task_id"], name: "index_bookings_on_task_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
-
-  add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id"
-  add_index "bookings", ["location_id"], name: "index_bookings_on_location_id"
-  add_index "bookings", ["task_id"], name: "index_bookings_on_task_id"
-  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "cases", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -76,9 +74,8 @@ ActiveRecord::Schema.define(version: 20161123091856) do
     t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["customer_id"], name: "index_locations_on_customer_id"
   end
-
-  add_index "locations", ["customer_id"], name: "index_locations_on_customer_id"
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -118,11 +115,10 @@ ActiveRecord::Schema.define(version: 20161123091856) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.index ["booking_id"], name: "index_users_on_booking_id"
+    t.index ["customer_id"], name: "index_users_on_customer_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["booking_id"], name: "index_users_on_booking_id"
-  add_index "users", ["customer_id"], name: "index_users_on_customer_id"
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
