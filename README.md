@@ -30,7 +30,6 @@ Spot on Property Maintenance require a booking system. The company currently boo
 </p>
 
 ## Features
-</br>
 * Clients need to be able to see the current bookings (not to be able to see other client data, if someone else has booked in time slots then this should show busy)
 * Clients need to be able to book in new bookings (with a login)
 * Employees need to be able to add bookings from phone calls and emails
