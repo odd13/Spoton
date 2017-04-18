@@ -21,27 +21,22 @@ class PropertysController < ApplicationController
   def destroy
     @property = Property.find(params[:id])
     @property.destroy
-    flash[:success] = "Property deleted"
+    flash[:success] = 'Property deleted'
     redirect_to '/propertys'
-  end
-
-  def showthing
-    return "hello mate"
   end
 
   def create
     @property = Property.new(property_params)
     if @property.save
-      redirect_to :action => 'index' #render 'propertys/index' # Handle a successful save.
+      redirect_to action: 'index'
     else
-      redirect_to :action => 'new'  #render 'propertys/new' # handle a failed save
+      redirect_to action: 'new'
     end
   end
 
+  private
 
   def property_params
     params.require(:property).permit(:name)
   end
-
-
 end

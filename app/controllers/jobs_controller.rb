@@ -10,34 +10,38 @@ class JobsController < ApplicationController
   end
 
   def todays
-    @jobs = Job.where(["booked_time > ? and booked_time < ?", Time.zone.now.beginning_of_day, Time.zone.now.end_of_day])
+    @jobs = Job.where(
+      ['booked_time > ? and booked_time < ?',
+       Time.zone.now.beginning_of_day,
+       Time.zone.now.end_of_day]
+    )
   end
 
-  #ToDo: Need to add a field for indication of being emailed. Just for testing
+  # TODO: Need to add a field for indication of being emailed. Just for testing
   def emailview
-    @jobs = Job.where(["end_date IS NOT NULL and start_date >= ?", Time.zone.now.beginning_of_day])
+    @jobs = Job.where(
+      ['end_date IS NOT NULL and start_date >= ?',
+       Time.zone.now.beginning_of_day]
+    )
   end
-
 
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to :action => 'index' #render 'jobs/index' # Handle a successful save.
+      redirect_to action: 'index'
     else
-      redirect_to :action => 'new'  #render 'jobs/new'
+      redirect_to action: 'new'
     end
   end
 
-#When the job is started update the start_date
   def startjob
     @job = Job.find(params[:id])
-    if @job.update_attribute(:start_date, DateTime.now) ## ------&& @job.update_attribute(:start_user_id, current_user.id)
+    if @job.update_attribute(:start_date, DateTime.now)
       redirect_to :back
     else
       render 'jobs/todays'
     end
   end
-
 
   def endjob
     @job = Job.find(params[:id])
@@ -46,18 +50,17 @@ class JobsController < ApplicationController
     else
       render 'jobs/todays'
     end
-
   end
 
-
   def show
-    @job = Job.find(params[:id])
+    # TODO: fix this mixed job/booking
+    @job = Booking.find(params[:id])
   end
 
   def destroy
     @job = Job.find(params[:id])
     @job.destroy
-    flash[:success] = "Job deleted"
+    flash[:success] = 'Job deleted'
     redirect_to '/jobs'
   end
 
@@ -77,7 +80,7 @@ class JobsController < ApplicationController
 
   private
 
-    def job_params
-      params.require(:job).permit(:name, :start_date, :end_date, :description)
-    end
+  def job_params
+    params.require(:job).permit(:name, :start_date, :end_date, :description)
+  end
 end

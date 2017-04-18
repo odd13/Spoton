@@ -12,9 +12,9 @@ class TypesController < ApplicationController
   def create
     @task = Type.new(task_params)
     if @task.save
-      redirect_to :action => 'index' #render 'tasks/index' # Handle a successful save.
+      redirect_to action: 'index'
     else
-      redirect_to :action => 'new'  #render 'tasks/new'
+      redirect_to action: 'new'
     end
   end
 
@@ -25,7 +25,7 @@ class TypesController < ApplicationController
   def destroy
     @task = Type.find(params[:id])
     @task.destroy
-    flash[:success] = "Type deleted"
+    flash[:success] = 'Type deleted'
     redirect_to '/tasks'
   end
 
@@ -45,8 +45,7 @@ class TypesController < ApplicationController
 
   private
 
-    def task_params
-      params.require(:task).permit(:name, :category)
-    end
-
+  def task_params
+    params.require(:task).permit(:name, :category)
+  end
 end

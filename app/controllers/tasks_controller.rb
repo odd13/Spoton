@@ -12,9 +12,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to :action => 'index' #render 'tasks/index' # Handle a successful save.
+      redirect_to action: 'index'
     else
-      redirect_to :action => 'new'  #render 'tasks/new'
+      redirect_to action: 'new'
     end
   end
 
@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:success] = "Task deleted"
+    flash[:success] = 'Task deleted'
     redirect_to '/tasks'
   end
 
@@ -45,8 +45,7 @@ class TasksController < ApplicationController
 
   private
 
-    def task_params
-      params.require(:task).permit(:name, :description)
-    end
-
+  def task_params
+    params.require(:task).permit(:name, :description)
+  end
 end
