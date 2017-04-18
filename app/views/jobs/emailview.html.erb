@@ -2,12 +2,13 @@
 <% #Need to replace the current_user with the linked user to the job logged %>
 
 <% @jobs.each do |j| %>
-<strong><%= j.name %> </strong>
-</br>
-Start Date\Time: <%= j.start_date.strftime("%I:%M%p") %> (Started by: <%= current_user.name %> )
-</br>
-End Date\Time: <%= j.end_date.strftime("%I:%M%p") %> (Completed by: <%= current_user.name %>)
-</br>
-</br>
-</br>
+  <strong><%= j.name %> </strong>
+  <p><%= j.description %></p>
+  </br>
+  Start Date\Time: <%= j.start_date.strftime("%I:%M%p") %> (Started by: <%= current_user.name %> )
+  </br>
+  End Date\Time: <%= j.end_date.strftime("%I:%M%p") %> (Completed by: <%= current_user.name %>)
+  </br>
+  </br>
+  </br>
 <% end %>

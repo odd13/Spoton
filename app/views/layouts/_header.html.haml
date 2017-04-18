@@ -1,9 +1,10 @@
 .row
   .col-md-12
     .nave.navbar.navbar-inverse
-      .container-fluid    
+      .container-fluid
         %ul.nav.navbar-nav
           %li= link_to request.fullpath, request.fullpath
+          %li= link_to 'Home', root_path
 
         %ul.nav.navbar-nav.navbar-right
           %li

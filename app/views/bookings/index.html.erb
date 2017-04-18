@@ -56,8 +56,23 @@
   </tbody>
 </table>
 
+<h2>To Invoice</h2>
+<table class="table table-sm table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Title</th>
+      <th></th>
+<th></th>
 
+<tbody>
+    <% @completed_bookings.each do |t| %>
+     <tr>
+      <th scope="row"><%= t.location.customer.name %></th>
+      <td><%= t.location.name %></td>
+      <td class='text-center'></span></td>
 
+<<<<<<< HEAD
 <h2>To Invoice</h2>
 <div class="list-group">
 <% @completed_bookings.each do |b| %>
@@ -67,11 +82,25 @@
           <%= button_to booking_path(b), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
              <span class="glyphicon glyphicon-trash"></span>
          <% end %>
+=======
+<td class='text-center'>
+      <%= button_to booking_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
+         <span class="glyphicon glyphicon-trash"></span>
+     <% end %>
+  </td>
 
-        </span>
+     </tr>
+    <% end %>
+>>>>>>> 35c9422509f407a5c08c4ed1cd2f59401dac4fae
 
+
+<<<<<<< HEAD
         <p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time.strftime("%d-%m-%Y") %></p>
 
         </a>
 <% end %>
 </div>
+=======
+</tbody>
+</table>
+>>>>>>> 35c9422509f407a5c08c4ed1cd2f59401dac4fae

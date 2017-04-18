@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/dev_index'
 
-  root 'welcome#index'
+  root 'welcome#dev_index'
 
   get '/jobs' => 'jobs#index'
   get '/jobs/todays' => 'jobs#todays', as: :todays_jobs
