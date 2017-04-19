@@ -1,5 +1,6 @@
 
 <%= render 'layouts/header_controls' %>
+
   <h1>Locations</h1>
   <table class="table table-sm table-hover table-striped">
     <thead>
@@ -18,8 +19,10 @@
     <tr>
       <th scope="row"><%= link_to edit_location_path(t),:class=>'deco-none nounderline' do %>
                 <div id="clickable">
+
 		<%= t.customer.name 
 		%>
+
 		</div>
                 <%end %></th>
 
