@@ -1,38 +1,37 @@
 <div id="wrapper" style="text-align: center">
   <a href="<%= request.fullpath %>/new">
-  <i class="fa fa-plus fa-3x" aria-hidden="true"></i>
-</a>
+  <i class="fa fa-plus fa-3x" aria-hidden="true"></i></a>
 </div>
 
-  <h1>Customers</h1>
-  <table class="table table-sm table-hover table-striped">
-    <thead>
-      <tr>
-        <th>Account</th>
-        <th>Address</th>
-        <th></th>
-      </tr>
-
-    </thead>
-  <tbody>
-
-<% @customers.each do |t| %>
-    <tr class='clickable-row' data-href='<%= edit_customer_path(t) %>'>
-      <td><%= t.name %></td>
-      <td> <%= t.address %></td>
-      <td class='text-center'>
-	<div class="form-inline btn-group" role="group">
-	<%= button_to customer_path(t), :class=>'btn btn-xs btn-secondary', method: :get do %>
-             <span class="glyphicon glyphicon-home"></span>
-         <% end %>
-
-          <%= button_to customer_path(t), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
-             <span class="glyphicon glyphicon-trash"></span>
-         <% end %>
-	</div>
-	</td>
+<h1>Customers</h1>
+<table class="table table-sm table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Address</th>
+      <th></th>
     </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |t| %>
+      <tr class='clickable-row' data-href='<%= edit_customer_path(t) %>'>
+        <td><%= t.name %></td>
+        <td> <%= t.address %></td>
+        <td class='text-center'>
+          <div class="form-inline btn-group" role="group">
+            <%= button_to customer_path(t), :class=>'btn btn-xs btn-secondary',
+                method: :get do %>
+                <span class="glyphicon glyphicon-home"></span>
+            <% end %>
 
-<% end%>
-</tbody>
+            <%= button_to customer_path(t), method: :delete,
+                data: { confirm: "You sure?" },
+                :class=>'btn btn-xs btn-warning' do %>
+               <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end%>
+    </tbody>
 </table>

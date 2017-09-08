@@ -1,17 +1,15 @@
 <%= form_for(@location) do |i| %>
-        <p>
-         <%= i.label :name %><br>
-         <%= i.text_field :name %>
-        </p>
-
-        <p>
-          <%= i.label :address %><br>
-          <%= i.text_field :address %>
-        </p>
-	
-        <p>
-          <%= i.collection_select(:customer_id, Customer.order(:name),:id,:name,include_blank: true, :selected => @location.customer_id) %><br>
-        </p>
-
-    <%= i.submit %>
+  <p>
+   <%= i.label :name %><br>
+   <%= i.text_field :name %>
+  </p>
+  <p>
+    <%= i.label :address %><br>
+    <%= i.text_field :address %>
+  </p>
+  <p>
+    <%= i.collection_select(:customer_id, Customer.order(:name),:id,
+    :name,include_blank: true, :selected => @location.customer_id) %><br>
+  </p>
+  <%= i.submit %>
 <% end %>

@@ -1,6 +1,4 @@
 class PropertysController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @propertys = Property.all
   end

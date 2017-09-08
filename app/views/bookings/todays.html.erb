@@ -1,123 +1,18 @@
-<!--
-<h1>Todays Bookings</h1>
-<%= link_to "New Booking", new_booking_url %>
-</br>
-</br>
-
-
-<% @bookings.each do |b| %>
-<strong><%= b.location.name %> - <%= link_to b.location.address, "http://maps.google.com/?q=#{b.location.address}",:target => "_blank" %></strong>
-	</br>
-	<% if b.start_datetime == nil %>
-	  <%= #link_to "Start Job", startjob_job_path(b)
-		%>
-	  <%= button_to "Start", startjob_booking_path(b), :class => 'myButton', :method => :get %>
-	<% else %>
-	  <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
-	<% end %>
- ------------------
-	<% if b.end_datetime == nil %>
-	  <%= #link_to "End Job", endjob_job_path(b)
-		%>
-	  <%= button_to "End", endjob_booking_path(b), :class => 'myButton', :method => :get %>
-	<% else %>
-	  <%= b.end_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
-	<% end %>
-
-	</br>
-        <%= link_to "delete", booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
-</br>
-</br>
-
-
-
-
-
-<% end %>
-
-<div class="list-group">
-<% @bookings.each do |b| %>
-        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action">
-        <h3 class="list-group-item-heading"><%= b.location.name %></h3>
-        <p class="list-group-item-text"><%= b.task.name %> : <%= b.booked_time %>
-
-	<% if b.end_datetime == nil %>
-		<% if b.start_datetime == nil %>
-          		<%= button_to "Start", startjob_booking_path(b), :class => 'btn btn-success btn-xs', :method => :get %>
-        	<% else %>
-			<%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
-			<%= button_to "End", endjob_booking_path(b), :class => 'btn btn-success btn-xs', :method => :get %>
-		<% end %>
-	<% else %>
-	  <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
-          <%= b.end_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
-        <% end %>
-	</p>
-
-
-        <%= link_to raw('<span style="text-align:center">delete</span>'), booking_path(b), method: :delete, data: { confirm: "You sure?" } %>
-        </a>
-<% end %>
-</div>
-
-
-</br>
-
-<div class="list-group">
-<% @bookings.each do |b| %>
-        <a href="<%= edit_booking_path(b) %>" class="list-group-item list-group-item-action clearfix">
-        <h3 class="list-group-item-heading"><%= b.location.name %></h3>
-          <span class="pull-right">
-          <%= button_to booking_path(b), method: :delete, data: { confirm: "You sure?" }, :class=>'btn btn-xs btn-warning' do %>
-             <span class="glyphicon glyphicon-trash"></span>
-         <% end %>
-
-        </span>
-
-	<span class="pull-left clearfix">
-        <% if b.end_datetime == nil %>
-                <% if b.start_datetime == nil %>
-                        <%= button_to booking_path(b), :class => 'btn btn-success btn-xs', :action => "startjob" do %>
-			<span class="glyphicon glyphicon-trash"></span>
-			<% end %>
-                <% else %>
-                        <%= b.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
-                        <%= button_to "End", endjob_booking_path(b), :class => 'btn btn-success btn-xs'%>
-                <% end %>
-	<% end %>
-	</span>
-<p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time.strftime("%d-%m-%Y") %>
-
-</p>
-
-        </a>
-<% end %>
-</div>
--->
-
 <h2>Todays Bookings</h2>
 <div class="list-group">
-<% @bookings.each do |b| %>
-        <a href="<%= booking_path(b) %>" class="list-group-item list-group-item-action">
-        <h3 class="list-group-item-heading"><%= b.location.name %></h3>
-				<% if b.end_datetime != nil %>
-					<span class="pull-right">
-						<span class="glyphicon glyphicon-ok-sign" style="font-size: 25px; color: green;"></span>
-					</span>
-				<% end %>
-        <p class="list-group-item-text"><%= b.task.name %> :<%= b.booked_time.strftime("%d-%m-%Y - %H:%M") %>
-
-				</p>
-
-        </a>
-<% end %>
+  <% @bookings.each do |b| %>
+    <a href="<%= booking_path(b) %>" class="list-group-item list-group-item-action">
+      <h3 class="list-group-item-heading"><%= b.location.name %></h3>
+      <% if b.end_datetime != nil %>
+      	<span class="pull-right">
+      		<span class="glyphicon glyphicon-ok-sign"
+                style="font-size: 25px; color: green;"></span>
+      	</span>
+      <% end %>
+      <p class="list-group-item-text">
+        <%= b.task.name %> :<%= b.booked_time.strftime("%d-%m-%Y - %H:%M") %></p>
+    </a>
+  <% end %>
 </div>
-
-
-
-
 <p>
-<%= link_to "Email Jobs", email_view_bookings_url %>
-</p>
-
-<% #http://stackoverflow.com/questions/13182661/rails-3-how-do-i-use-link-to-to-change-the-value-of-a-boolean-in-the-db %>
+  <%= link_to "Email Jobs", email_view_bookings_url %></p>
