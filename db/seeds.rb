@@ -6,8 +6,7 @@ c1 = Customer.create(
   postcode: '2584',
   country: 'aus',
   email: 'blah@blag',
-  phone: '1212'
-)
+  phone: '1212')
 
 c2 = Customer.create(
   name: 'A1 Realestate',
@@ -17,8 +16,7 @@ c2 = Customer.create(
   postcode: '2584',
   country: 'aus',
   email: 'blah@blag',
-  phone: '1212'
-)
+  phone: '1212')
 
 c3 = Customer.create(
   name: 'Cutcliff',
@@ -28,8 +26,7 @@ c3 = Customer.create(
   postcode: '2584',
   country: 'aus',
   email: 'blah@blag',
-  phone: '1212'
-)
+  phone: '1212')
 
 User.create! name: 'Garry Danger', email: 'garrydanger@gmail.com',
              password: 'bobafett', password_confirmation: 'bobafett',

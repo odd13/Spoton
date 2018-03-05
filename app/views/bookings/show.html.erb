@@ -7,17 +7,15 @@
   <%= @booking.task.name %></br>
   <%= @booking.description %></br>
 
-  <% if @booking.end_datetime == nil %>
-    <% if @booking.start_datetime == nil %>
-      <%= button_to "Start", startjob_booking_path(@booking),
-          :class => 'btn btn-success btn-lg', :method => :get %>
-    <% else %>
-      <%= @booking.start_datetime.strftime("%I:%M%p") %> -
-      <%= current_user.name.at(0) %> -
-      <%= button_to "End", endjob_booking_path(@booking),
-          :class => 'btn btn-success btn-lg', :method => :get %>
-    <% end %>
-  <% else %>
+  <% if @booking.work_has_ended %>
     <%= @booking.start_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %> -
     <%= @booking.end_datetime.strftime("%I:%M%p") %> - <%= current_user.name.at(0) %>
+  <% else %>
+    <% if @booking.work_has_started %>
+      <%= @booking.start_datetime.strftime("%I:%M%p") %> -
+      <%= current_user.name.at(0) %> -
+      <%= button_to "End", end_work_path, :class => 'btn btn-success btn-lg' %>
+    <% else %>
+      <%= button_to "Start", start_work_path, :class => 'btn btn-success btn-lg' %>
+    <% end %>
   <% end %>

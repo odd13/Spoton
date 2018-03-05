@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @job_to_schedule_bookings.each do |t| %>
+      <% Booking.unscheduled.each do |t| %>
       <tr>
         <th scope="row"><%= t.location.customer.name %></th>
         <td><%= t.location.name %></td>
@@ -38,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @job_bookings.each do |t| %>
+      <% Booking.scheduled.each do |t| %>
        <tr>
         <th scope="row"><%= t.location.customer.name %></th>
         <td><%= t.location.name %></td>

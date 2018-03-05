@@ -1,6 +1,6 @@
 <h2>Todays Bookings</h2>
 <div class="list-group">
-  <% @bookings.each do |b| %>
+  <% Booking.for_today.each do |b| %>
     <a href="<%= booking_path(b) %>" class="list-group-item list-group-item-action">
       <h3 class="list-group-item-heading"><%= b.location.name %></h3>
       <% if b.end_datetime != nil %>
