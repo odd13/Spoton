@@ -1,15 +1,12 @@
 <h1><%= @customer.name %></h1>
-Address: <%= @customer.address %> </br>
-Phone: <%= @customer.phone %> </br>
-<%= link_to "Edit", edit_customer_path(@customer) %>
+  Address: <%= @customer.address %> </br>
+  Phone: <%= @customer.phone %> </br>
+  <%= link_to "Edit", edit_customer_path(@customer) %>
 
-<h3>Locations</h3>
-<% @locations.each do |t| %>
-<%= t.name %> - <%= t.address %>
-
-</br>
-        <%= link_to "Edit", edit_location_path(t) %>
-</br>
-
-</br>
-<% end%>
+  <h3>Locations</h3>
+  <% @locations.each do |t| %>
+    <p>
+    <%= t.name %> - <%= t.address %> </br>
+            <%= link_to "Edit", edit_location_path(t) %>
+    </p>
+  <% end%>

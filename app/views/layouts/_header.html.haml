@@ -7,11 +7,6 @@
           %li= link_to 'Home', root_path
 
         %ul.nav.navbar-nav.navbar-right
-          %li
-            - if action_name != 'new'
-              = link_to '+', "#{request.fullpath}/new"
-            - else
-              = link_to '+', '#'
           %li= link_to 'Todays Jobs', todays_bookings_path
           - if current_user
             %li= link_to current_user.name, '#'

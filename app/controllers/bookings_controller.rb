@@ -1,39 +1,7 @@
 class BookingsController < ApplicationController
+
   def index
     @bookings = Booking.all
-    jobbookings
-    @job_to_schedule_bookings =
-      Booking.where([' task_id != ? and booked_time IS NULL', 4])
-    @quote_bookings = Booking.where([' task_id = ?', 4])
-    @completed_bookings = Booking.where([' end_datetime IS NOT NULL'])
-  end
-
-  def new
-    @booking = Booking.new
-  end
-
-  def todays
-    @bookings = Booking.where(
-      ['booked_time > ? and booked_time < ?',
-       Time.zone.now.beginning_of_day,
-       Time.zone.now.end_of_day]
-    ).order(:end_datetime)
-  end
-
-  def quotes
-    @quotebookings = Booking.where([' task_id = ?', 4])
-  end
-
-  def completed_bookings
-    @completedbookings = Booking.where([' end_datetime IS NOT NULL'])
-  end
-
-  def invoices
-    @bookings = Booking.where(
-      ['booked_time > ? and booked_time < ?',
-       Time.zone.now.beginning_of_day,
-       Time.zone.now.end_of_day]
-    )
   end
 
   def create
@@ -70,7 +38,11 @@ class BookingsController < ApplicationController
     end
   end
 
-  def startjob
+  def new
+    @booking = Booking.new
+  end
+
+  def start_work
     @booking = Booking.find(params[:id])
     if @booking.update_attribute(:start_datetime, DateTime.now)
       redirect_to :back
@@ -79,7 +51,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  def endjob
+  def end_work
     @booking = Booking.find(params[:id])
     if @booking.update_attribute(:end_datetime, DateTime.now)
       redirect_to :back
@@ -97,14 +69,8 @@ class BookingsController < ApplicationController
     )
   end
 
-  private
 
-  def jobbookings
-    @job_bookings = Booking.where(
-      [' task_id != ? and booked_time IS NOT NULL',
-       4]
-    )
-  end
+  private
 
   def booking_params
     params.require(:booking).permit(

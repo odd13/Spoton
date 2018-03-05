@@ -11,7 +11,7 @@
     </thead>
   <tbody>
 
-<% @bookings.each do |t| %>
+<% Booking.to_invoiced.each do |t| %>
     <tr class="table-danger">
       <th scope="row"><%= t.location.customer.name %></th>
       <td> <%= t.location.name %></td>
@@ -36,7 +36,7 @@
     </thead>
   <tbody>
 
-<% @bookings.each do |t| %>
+<% Booking.invoiced.each do |t| %>
     <tr class="table-danger">
       <th scope="row"><%= t.location.customer.name %></th>
       <td> <%= t.location.name %></td>
