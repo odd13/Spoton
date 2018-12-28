@@ -4,6 +4,8 @@ class Booking < ActiveRecord::Base
   belongs_to :task
   belongs_to :user
 
+  validate :not_booking_in_the_past
+
   scope :for_today, -> { where(
                   ['booked_time > ? and booked_time < ?',
                   Time.zone.now.beginning_of_day,
@@ -26,5 +28,11 @@ class Booking < ActiveRecord::Base
   def in_progress
     return work_has_started unless work_has_started
     work_has_ended == false
+  end
+
+  def not_booking_in_the_past
+    if booked_time < Time.now()
+      errors[:booked_time] << "Unable to create booking in the past"
+    end
   end
 end
