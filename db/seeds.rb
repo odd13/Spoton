@@ -34,9 +34,6 @@ User.create! name: 'Garry Danger', email: 'garrydanger@gmail.com',
 User.create! name: 'Oddie', email: 'arcadeoddie@gmail.com',
              password: 'bobafett', password_confirmation: 'bobafett',
              customer_id: c1
-User.create! name: 'rob', email: 'robert.ofarrell@gmail.com',
-             password: 'bobafett2', password_confirmation: 'bobafett2',
-             customer_id: c1
 User.create! name: 'Oddie2', email: 'arcadeoddie2@gmail.com',
              password: 'bobafett', password_confirmation: 'bobafett',
              customer_id: c2

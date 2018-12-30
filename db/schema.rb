@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123091856) do
+ActiveRecord::Schema.define(version: 20181230055922) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "customer_id"
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 20161123091856) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.string   "work_type"
+    t.string   "cust_name"
+    t.string   "cust_address"
+    t.decimal  "price"
+    t.decimal  "tax"
+    t.integer  "parent_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["parent_id"], name: "index_invoices_on_parent_id", unique: true
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -53,18 +65,6 @@ ActiveRecord::Schema.define(version: 20161123091856) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["customer_id"], name: "index_locations_on_customer_id"
-  end
-
-  create_table "properties", force: :cascade do |t|
-    t.string   "name"
-    t.string   "numberunit"
-    t.string   "street"
-    t.string   "suburb"
-    t.string   "postcode"
-    t.string   "phone"
-    t.integer  "hours"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
