@@ -1,0 +1,15 @@
+<%= form_for(@invoice) do |i| %>
+        <p>
+         <%= i.label :name %><br>
+         <%= i.text_field :name %>
+        </p>
+
+        <p>
+          <%= i.label :description %><br>
+          <%= i.text_field :description %>
+        </p>
+
+
+    <%= i.submit %>
+<% end %>
+
