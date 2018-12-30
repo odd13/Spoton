@@ -4,7 +4,7 @@ class Booking < ActiveRecord::Base
   belongs_to :task
   belongs_to :user
 
-  validate :not_booking_in_the_past
+  validate :not_booking_in_the_past #BookingValidator, fields: [:booked_time]
 
   scope :for_today, -> { where(
                   ['booked_time > ? and booked_time < ?',
