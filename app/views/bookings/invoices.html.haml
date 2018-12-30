@@ -1,0 +1,51 @@
+
+%h2
+  To Invoice
+  %table.table.table-sm.table-hover.table-striped
+    %thead
+      %tr
+        %th Account
+        %th Title
+        %th Date Worked
+        %th
+
+- Booking.to_invoice.each do |t| 
+  %tr.table-danger
+    %th
+      = t.location.customer.name
+      %td
+        =t.location.name
+      %td
+        = t.start_datetime
+      %td.text-center
+        %span.glyphicon.glyphicon-upload
+          or 03/12/2016
+
+//<% end%>
+//</tbody>
+//</table>
+//
+//<h2>Invoiced</h2>
+//  <table class="table table-sm table-hover table-striped">
+//    <thead>
+//      <tr>
+//        <th>Account</th>
+//        <th>Title</th>
+//        <th>Date Worked</th>
+//        <th>Paid</th>
+//      </tr>
+//
+//    </thead>
+//  <tbody>
+//
+//<% Booking.invoiced.each do |t| %>
+//    <tr class="table-danger">
+//      <th scope="row"><%= t.location.customer.name %></th>
+//      <td> <%= t.location.name %></td>
+//      <td>01/01/2016</td>
+//      <td class='text-center'><span class='glyphicon glyphicon-ok-circle'></span>or 02/01/2016</td>
+//    </tr>
+//
+//<% end%>
+//</tbody>
+//</table>

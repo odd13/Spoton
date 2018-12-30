@@ -8,8 +8,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to action: 'index'
+      flash[:success] = 'Booking created'
     else
       redirect_to action: 'new'
+      flash[:error] = "Booking NOT created: #{@booking.errors.full_messages}"
     end
   end
 
@@ -67,6 +69,10 @@ class BookingsController < ApplicationController
        Time.zone.now.beginning_of_day,
        Time.zone.now.end_of_day]
     )
+  end
+
+  def to_invoice
+    @bookings = Booking.to_invoice
   end
 
 

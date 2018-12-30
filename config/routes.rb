@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get 'welcome/index'
     get 'welcome/dev_index'
 
+    get 'accounts/due' => 'bookings#invoices', as: :to_invoice
+
     root 'welcome#dev_index'
     get '/bookings/todays' => 'bookings#todays', as: :todays_bookings
     get '/bookings/emailview' => 'bookings#emailview', as: :email_view_bookings
