@@ -60,7 +60,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    crass (1.0.4)
+    crass (1.0.5)
     debug_inspector (0.0.3)
     devise (4.6.2)
       bcrypt (~> 3.0)
@@ -106,7 +106,7 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.8.6)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -118,7 +118,7 @@ GEM
     momentjs-rails (2.20.1)
       railties (>= 3.1)
     nio4r (1.2.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pry (0.12.2)
